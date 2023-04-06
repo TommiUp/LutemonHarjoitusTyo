@@ -26,12 +26,14 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder> 
     @NonNull
     @Override
     public LutemonViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new LutemonViewHolder(LayoutInflater.from(context).inflate(R.layout.lutemon_view, parent,false));
+        return new LutemonViewHolder(LayoutInflater.from(context).inflate(R.layout.lutemon_view, parent,false)); //lutemon view varten tarvitaan xml file//
+
     }
 
     @Override
     public void onBindViewHolder(@NonNull LutemonViewHolder holder, int position){
-
+        holder.LutemonNimi.setText(lutemons.get(position).getName() + " " + lutemons.get(position).getColor());
+        holder.LutemonHyokkays.setText();
     }
 
 
