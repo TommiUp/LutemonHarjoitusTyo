@@ -2,9 +2,9 @@ package com.example.lutemonapp;
 
 import java.io.Serializable;
 
-public class Lutemon implements Serializable{
+public class Lutemon implements Serializable {
     private String name;
-    private String color;
+    private String type;
     private int attack;
     private int defense;
     private int experience;
@@ -14,12 +14,12 @@ public class Lutemon implements Serializable{
     private static int idCounter = 0;
 
     // Constructor for creating a Lutemon object with the given attributes
-    public Lutemon(String name, String color) {
+    public Lutemon(String name, String type) {
         this.name = name;
-        this.color = color;
+        this.type = type;
         this.id = idCounter++;
         this.experience = 0;
-        switch (color) {
+        switch (type) {
             case "White":
                 this.attack = 5;
                 this.defense = 4;
@@ -81,8 +81,8 @@ public class Lutemon implements Serializable{
         return name;
     }
 
-    public String getColor() {
-        return color;
+    public String getType() {
+        return type;
     }
 
     public int getAttack() {
@@ -119,6 +119,6 @@ public class Lutemon implements Serializable{
 
     @Override
     public String toString() {
-        return "Name: " + name + "\nColor: " + color + "\nAttack: " + attack + "\nDefense: " + defense + "\nExperience: " + experience + "\nHealth: " + health + "/" + maxHealth + "\n";
+        return "Name: " + name + "\nColor: " + type + "\nAttack: " + attack + "\nDefense: " + defense + "\nExperience: " + experience + "\nHealth: " + health + "/" + maxHealth + "\n";
     }
 }

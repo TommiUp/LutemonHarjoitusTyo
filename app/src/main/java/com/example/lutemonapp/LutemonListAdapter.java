@@ -1,22 +1,20 @@
 package com.example.lutemonapp;
-
 import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.ViewGroup;
-
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.ArrayList;
 
 public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder> {
+
     private Context context;
 
     private ArrayList<Lutemon> lutemons = new ArrayList<>();
 
-    public LutemonListAdapter(ArrayList<Lutemon> lutemons, Context context){
-        this.lutemons = lutemons;
+    public LutemonListAdapter(Context context, ArrayList<Lutemon> lutemons){
         this.context = context;
+        this.lutemons = lutemons;
     }
 
     @NonNull
@@ -27,7 +25,7 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder> 
 
     @Override
     public void onBindViewHolder(@NonNull LutemonViewHolder holder, int position){
-        holder.lutemonName.setText(lutemons.get(position).getName() + " (" + lutemons.get(position).getColor() + ")");
+        holder.lutemonName.setText(lutemons.get(position).getName() + " (" + lutemons.get(position).getType() + ")");
         holder.lutemonAttack.setText("Hyökkäys: " + String.valueOf(lutemons.get(position).getAttack()));
         holder.lutemonDefence.setText("Puolustus: " + String.valueOf(lutemons.get(position).getAttack()));
         holder.lutemonHealth.setText("Elämä: " + String.valueOf(lutemons.get(position).getHealth()));

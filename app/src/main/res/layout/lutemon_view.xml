@@ -3,14 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="190dp"
+    android:layout_height="wrap_content"
     android:layout_marginTop="5dp"
     android:background="#03A9F4"
     android:orientation="horizontal">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:orientation="vertical">
 
         <TextView
@@ -18,35 +18,35 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Nimi (tyyppi)"
-            android:textSize="34sp" />
+            android:textSize="24sp" />
 
         <TextView
             android:id="@+id/txtAttack"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Hyökkäys"
-            android:textSize="24sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/txtDefence"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Puolustus"
-            android:textSize="24sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/txtHealth"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Elämä"
-            android:textSize="24sp" />
+            android:textSize="16sp" />
 
         <TextView
             android:id="@+id/txtExp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Kokemus"
-            android:textSize="24sp" />
+            android:textSize="16sp" />
 
     </LinearLayout>
 

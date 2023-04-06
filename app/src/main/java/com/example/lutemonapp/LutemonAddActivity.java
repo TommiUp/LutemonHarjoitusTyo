@@ -3,6 +3,7 @@ package com.example.lutemonapp;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -27,26 +28,26 @@ public class LutemonAddActivity extends AppCompatActivity {
         txtName = findViewById(R.id.txtLutemonName);
     }
 
-    public void createLutemon() {
+    public void createLutemon(View view) {
         switch (rgLutemons.getCheckedRadioButtonId()) {
             case R.id.rbWhite:
-                type = rbWhite.getText().toString();
+                type = "White";
                 break;
             case R.id.rbGreen:
-                type = rbGreen.getText().toString();
+                type = "Green";
                 break;
             case R.id.rbPink:
-                type = rbPink.getText().toString();
+                type = "Pink";
                 break;
             case R.id.rbOrange:
-                type = rbOrange.getText().toString();
+                type = "Orange";
                 break;
             case R.id.rbBlack:
-                type = rbBlack.getText().toString();
+                type = "Black";
                 break;
         }
         name = txtName.getText().toString();
-        Lutemon newLutemon = new Lutemon(type, name);
+        Lutemon newLutemon = new Lutemon(name, type);
         LutemonStorage.getInstance().addLutemon(newLutemon);
         LutemonStorage.getInstance().saveLutemons(this);
         finish();

@@ -14,19 +14,15 @@ public class LutemonListActivity extends AppCompatActivity {
 
     private RecyclerView  recyclerView;
 
+    private LutemonListAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lutemon_list);
-
         storage = LutemonStorage.getInstance();
-
         recyclerView = findViewById(R.id.rvLutemonList);
-
-        Collections.sort(LutemonStorage.getInstance().getLutemons(), (lutemon1, lutemon2) -> lutemon1.getName().compareTo(lutemon2.getName()));
-
-
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new LutemonListAdapter(storage.getLutemons(), getApplicationContext()));
+        recyclerView.setAdapter(new LutemonListAdapter(getApplicationContext(), storage.getLutemons()));
     }
 }
