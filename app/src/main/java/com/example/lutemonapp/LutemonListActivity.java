@@ -6,15 +6,12 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
-import java.util.Collections;
-
 public class LutemonListActivity extends AppCompatActivity {
 
     private LutemonStorage storage;
 
     private RecyclerView  recyclerView;
 
-    private LutemonListAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
