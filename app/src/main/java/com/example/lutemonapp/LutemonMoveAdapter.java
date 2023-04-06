@@ -8,6 +8,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
+import java.util.List;
 
 public class LutemonMoveAdapter extends RecyclerView.Adapter<LutemonMoveViewHolder> {
 
@@ -28,7 +29,12 @@ public class LutemonMoveAdapter extends RecyclerView.Adapter<LutemonMoveViewHold
 
     @Override
     public void onBindViewHolder(@NonNull LutemonMoveViewHolder holder, int position){
+        Lutemon lutemon = lutemons.get(position);
         holder.checkboxName.setText(lutemons.get(position).getName() + " (" + lutemons.get(position).getType() + ")");
+        holder.checkboxName.setChecked(lutemon.isChecked());
+        holder.checkboxName.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            lutemon.setChecked(isChecked);
+        });
     }
 
     @Override

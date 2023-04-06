@@ -6,11 +6,14 @@ public class Lutemon implements Serializable {
     private String name;
     private String type;
     private int attack;
-    private int defense;
+    private int defence;
     private int experience;
     private int health;
     private int maxHealth;
     private int id;
+
+    private boolean isChecked = false;
+
     private static int idCounter = 0;
 
     // Constructor for creating a Lutemon object with the given attributes
@@ -22,27 +25,27 @@ public class Lutemon implements Serializable {
         switch (type) {
             case "White":
                 this.attack = 5;
-                this.defense = 4;
+                this.defence = 4;
                 this.maxHealth = 20;
                 break;
             case "Green":
                 this.attack = 6;
-                this.defense = 3;
+                this.defence = 3;
                 this.maxHealth = 19;
                 break;
             case "Pink":
                 this.attack = 7;
-                this.defense = 2;
+                this.defence = 2;
                 this.maxHealth = 18;
                 break;
             case "Orange":
                 this.attack = 8;
-                this.defense = 1;
+                this.defence = 1;
                 this.maxHealth = 17;
                 break;
             case "Black":
                 this.attack = 9;
-                this.defense = 0;
+                this.defence = 0;
                 this.maxHealth = 16;
                 break;
             default:
@@ -59,7 +62,7 @@ public class Lutemon implements Serializable {
 
     // Method for defending against an attack
     public int defence() {
-        return defense;
+        return defence;
     }
 
     // Method for taking damage
@@ -72,8 +75,17 @@ public class Lutemon implements Serializable {
 
     // Method for gaining experience points
     public void gainExperience() {
+        System.out.println("Kokemusta annettiin");
         experience++;
         attack += experience;
+    }
+
+    public boolean isChecked() {
+        return isChecked;
+    }
+
+    public void setChecked(boolean isChecked) {
+        this.isChecked = isChecked;
     }
 
     // Getters and setters for the attributes of the Lutemon object
@@ -89,8 +101,8 @@ public class Lutemon implements Serializable {
         return attack;
     }
 
-    public int getDefense() {
-        return defense;
+    public int getDefence() {
+        return defence;
     }
 
     public int getExperience() {
@@ -119,6 +131,6 @@ public class Lutemon implements Serializable {
 
     @Override
     public String toString() {
-        return "Name: " + name + "\nColor: " + type + "\nAttack: " + attack + "\nDefense: " + defense + "\nExperience: " + experience + "\nHealth: " + health + "/" + maxHealth + "\n";
+        return "Name: " + name + "\nColor: " + type + "\nAttack: " + attack + "\nDefense: " + defence + "\nExperience: " + experience + "\nHealth: " + health + "/" + maxHealth + "\n";
     }
 }

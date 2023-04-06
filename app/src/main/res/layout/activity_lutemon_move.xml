@@ -6,6 +6,38 @@
     android:layout_height="match_parent"
     tools:context=".LutemonMoveActivity">
 
+    <RadioGroup
+        android:id="@+id/rgMove"
+        android:layout_width="173dp"
+        android:layout_height="147dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="140dp"
+        app:layout_constraintEnd_toEndOf="@+id/rvLutemonList"
+        app:layout_constraintStart_toStartOf="@+id/rvLutemonList"
+        app:layout_constraintTop_toBottomOf="@+id/rvLutemonList">
+
+        <RadioButton
+            android:id="@+id/rbHome"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kotiin"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/rbTraining"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Treenaamaan"
+            android:textSize="16sp" />
+
+        <RadioButton
+            android:id="@+id/rbCombat"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Taisteluareenalle"
+            android:textSize="16sp" />
+    </RadioGroup>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvLutemonList"
         android:layout_width="317dp"
@@ -15,4 +47,16 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.148" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:onClick="moveLutemons"
+        android:text="Siirrä valitut Lutemonit"
+        app:layout_constraintEnd_toEndOf="@+id/rgMove"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/rgMove"
+        app:layout_constraintTop_toBottomOf="@+id/rgMove" />
 </androidx.constraintlayout.widget.ConstraintLayout>
