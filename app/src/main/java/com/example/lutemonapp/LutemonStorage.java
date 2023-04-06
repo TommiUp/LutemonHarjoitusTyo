@@ -1,5 +1,9 @@
 package com.example.lutemonapp;
 
+import android.content.Context;
+
+import java.io.IOException;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 public class LutemonStorage {
 
@@ -24,5 +28,16 @@ public class LutemonStorage {
 
     public void addLutemon(Lutemon lutemon) {
         lutemons.add(lutemon);
+    }
+
+    public void saveLutemons(Context context){
+        try {
+            ObjectOutputStream lutemonWriter = new ObjectOutputStream(context.openFileOutput("lutemons.data", Context.MODE_PRIVATE));
+            lutemonWriter.writeObject(lutemons);
+            lutemonWriter.close();
+            System.out.println("Lutemonien tallentaminen onnistui");
+        } catch (IOException e){
+            System.out.println("Lutemonien tallentaminen ei onnistunut");
+        }
     }
 }

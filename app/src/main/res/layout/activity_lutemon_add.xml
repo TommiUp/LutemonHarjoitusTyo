@@ -6,4 +6,67 @@
     android:layout_height="match_parent"
     tools:context=".LutemonAddActivity">
 
+    <RadioGroup
+        android:id="@+id/rgLutemons"
+        android:layout_width="176dp"
+        android:layout_height="239dp"
+        android:layout_marginStart="100dp"
+        android:layout_marginTop="50dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <RadioButton
+            android:id="@+id/rbWhite"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Valkoinen" />
+
+        <RadioButton
+            android:id="@+id/rbGreen"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Vihreä" />
+
+        <RadioButton
+            android:id="@+id/rbPink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Pinkki" />
+
+        <RadioButton
+            android:id="@+id/rbOrange"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Oranssi" />
+
+        <RadioButton
+            android:id="@+id/rbBlack"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Musta" />
+    </RadioGroup>
+
+    <EditText
+        android:id="@+id/txtLutemonName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="68dp"
+        android:ems="10"
+        android:hint="Lutemonin nimi"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/rgLutemons"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/rgLutemons"
+        app:layout_constraintTop_toBottomOf="@+id/rgLutemons" />
+
+    <Button
+        android:id="@+id/btnCreate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="36dp"
+        android:text="Lisää uusi Lutemon"
+        android:onClick="createLutemon"
+        app:layout_constraintEnd_toEndOf="@+id/txtLutemonName"
+        app:layout_constraintStart_toStartOf="@+id/txtLutemonName"
+        app:layout_constraintTop_toBottomOf="@+id/txtLutemonName" />
 </androidx.constraintlayout.widget.ConstraintLayout>
