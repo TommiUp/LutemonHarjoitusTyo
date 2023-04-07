@@ -17,6 +17,8 @@ public class LutemonBattleActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
+    private LutemonBattleAdapter adapter;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +26,8 @@ public class LutemonBattleActivity extends AppCompatActivity {
         storage = LutemonStorage.getInstance();
         recyclerView = findViewById(R.id.rvLutemonList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new LutemonBattleAdapter(getApplicationContext(), storage.getLutemons()));
+        adapter = new LutemonBattleAdapter(getApplicationContext(), storage.getLutemons());
+        recyclerView.setAdapter(adapter);
     }
 
 
@@ -39,5 +42,6 @@ public class LutemonBattleActivity extends AppCompatActivity {
             lutemon.fight(checkedLutemons.get(0), checkedLutemons.get(1));
         }
         storage.saveLutemons(getApplicationContext());
+        adapter.notifyDataSetChanged();
     }
 }
