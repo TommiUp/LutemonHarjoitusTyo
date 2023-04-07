@@ -1,12 +1,6 @@
 package com.example.lutemonapp;
 
-import android.opengl.Visibility;
-
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Random;
 
 public class Lutemon implements Serializable {
@@ -92,16 +86,14 @@ public class Lutemon implements Serializable {
     }
 
     public void makeVisible() {
-        System.out.println("Lutemon tuli näkyväksi");
         visibility = 1;
     }
 
     public void makeInvisible() {
-        System.out.println("Lutemon katosi");
         visibility = 0;
     }
 
-    public int getVisibility() {
+    public int getBattleStatus() {
         return visibility;
     }
 
