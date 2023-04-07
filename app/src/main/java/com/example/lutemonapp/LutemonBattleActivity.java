@@ -45,9 +45,52 @@ public class LutemonBattleActivity extends AppCompatActivity {
                 checkedLutemons.add(lutemon);
             }
         }
-        for (Lutemon lutemon : checkedLutemons) {
-            lutemon.fight(checkedLutemons.get(0), checkedLutemons.get(1));
-            txtBattle.setText(lutemon.toString());
+        if (checkedLutemons.size() == 2) {
+            StringBuilder battleInfo = new StringBuilder();
+            Lutemon attacker = checkedLutemons.get(0);
+            Lutemon defender = checkedLutemons.get(1);
+            boolean battleOver = false;
+            while (!battleOver) {
+                // Attacker attacks defender
+                int damage = attacker.attack() - defender.defence();
+                if (damage > 0) {
+                    defender.takeDamage(damage);
+                    battleInfo.append(String.format("%d: %s att: %d; def: %d; exp:%d; health:%d/%d\n",
+                            attacker.getId(), attacker.getName(), attacker.attack(), attacker.defence(), attacker.getExperience(),
+                            attacker.getHealth(), attacker.getMaxHealth()));
+                    battleInfo.append(String.format("%d: %s att: %d; def: %d; exp:%d; health:%d/%d\n",
+                            defender.getId(), defender.getName(), defender.attack(), defender.defence(), defender.getExperience(),
+                            defender.getHealth(), defender.getMaxHealth()));
+                    battleInfo.append(String.format("%s attacks %s\n", attacker.getName(), defender.getName()));
+                    if (defender.getHealth() == 0) {
+                        battleInfo.append(String.format("%s gets killed.\nThe battle is over.", defender.getName()));
+                        battleOver = true;
+                        break;
+                    }
+                } else {
+                    battleInfo.append(String.format("%s attacks %s\n", attacker.getName(), defender.getName()));
+                }
+                // Defender attacks attacker
+                damage = defender.attack() - attacker.defence();
+                if (damage > 0) {
+                    attacker.takeDamage(damage);
+                    battleInfo.append(String.format("%d: %s att: %d; def: %d; exp:%d; health:%d/%d\n",
+                            defender.getId(), defender.getName(), defender.attack(), defender.defence(), defender.getExperience(),
+                            defender.getHealth(), defender.getMaxHealth()));
+                    battleInfo.append(String.format("%d: %s att: %d; def: %d; exp:%d; health:%d/%d\n",
+                            attacker.getId(), attacker.getName(), attacker.attack(), attacker.defence(), attacker.getExperience(),
+                            attacker.getHealth(), attacker.getMaxHealth()));
+                    battleInfo.append(String.format("%s attacks %s\n", defender.getName(), attacker.getName()));
+                    if (attacker.getHealth() == 0) {
+                        battleInfo.append(String.format("%s gets killed.\nThe battle is over.", attacker.getName()));
+                        battleOver = true;
+                        break;
+                    }
+                } else {
+                    battleInfo.append(String.format("%s attacks %s\n", defender.getName(), attacker.getName()));
+                }
+            }
+            txtBattle.setText(battleInfo.toString());
         }
         storage.saveLutemons(getApplicationContext());
         adapter.notifyDataSetChanged();

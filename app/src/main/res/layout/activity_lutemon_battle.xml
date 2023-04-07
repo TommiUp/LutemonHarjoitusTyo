@@ -8,8 +8,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvLutemonList"
-        android:layout_width="311dp"
-        android:layout_height="136dp"
+        android:layout_width="312dp"
+        android:layout_height="69dp"
         android:layout_marginTop="16dp"
         app:layout_constraintEnd_toEndOf="@+id/txtBattle"
         app:layout_constraintHorizontal_bias="0.492"
@@ -31,24 +31,26 @@
         android:id="@+id/btnStartBattle"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
+        android:layout_marginTop="4dp"
         android:onClick="sendToBattle"
         android:text="Taisteluun"
         app:layout_constraintEnd_toEndOf="@+id/rvLutemonList"
-        app:layout_constraintHorizontal_bias="0.495"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="@+id/rvLutemonList"
         app:layout_constraintTop_toBottomOf="@+id/rvLutemonList" />
 
     <TextView
         android:id="@+id/txtBattleInfo"
-        android:layout_width="300dp"
-        android:layout_height="354dp"
-        android:layout_marginTop="16dp"
-        android:text="Tekstikenttä"
+        android:layout_width="334dp"
+        android:layout_height="303dp"
+        android:layout_marginBottom="24dp"
+        android:background="#2196F3"
+        android:text="Taistelu ei ole vielä alkanut"
+        android:textAlignment="viewStart"
+        android:textSize="14sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/btnStartBattle"
         app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="@+id/btnStartBattle"
-        app:layout_constraintTop_toBottomOf="@+id/btnStartBattle"
-        app:layout_constraintVertical_bias="0.111" />
+        app:layout_constraintStart_toStartOf="@+id/btnStartBattle" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
