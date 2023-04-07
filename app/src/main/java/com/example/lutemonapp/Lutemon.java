@@ -190,7 +190,6 @@ public class Lutemon implements Serializable {
                 storage.removeLutemon(lutemon1.getId());
                 break;
             }
-
         }
     }
     @Override

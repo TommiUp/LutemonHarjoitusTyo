@@ -64,6 +64,8 @@ public class LutemonBattleActivity extends AppCompatActivity {
                     battleInfo.append(String.format("%s attacks %s\n", attacker.getName(), defender.getName()));
                     if (defender.getHealth() == 0) {
                         battleInfo.append(String.format("%s gets killed.\nThe battle is over.", defender.getName()));
+                        storage.removeLutemon(defender.getId());
+                        attacker.gainExperience();
                         battleOver = true;
                         break;
                     }
@@ -83,6 +85,8 @@ public class LutemonBattleActivity extends AppCompatActivity {
                     battleInfo.append(String.format("%s attacks %s\n", defender.getName(), attacker.getName()));
                     if (attacker.getHealth() == 0) {
                         battleInfo.append(String.format("%s gets killed.\nThe battle is over.", attacker.getName()));
+                        storage.removeLutemon(attacker.getId());
+                        defender.gainExperience();
                         battleOver = true;
                         break;
                     }
@@ -94,5 +98,8 @@ public class LutemonBattleActivity extends AppCompatActivity {
         }
         storage.saveLutemons(getApplicationContext());
         adapter.notifyDataSetChanged();
+        for (Lutemon lutemon : storage.getLutemons()) {
+            lutemon.setChecked(false);
+        }
     }
 }
