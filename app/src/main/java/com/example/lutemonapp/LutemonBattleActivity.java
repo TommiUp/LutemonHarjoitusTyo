@@ -6,6 +6,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -19,6 +20,8 @@ public class LutemonBattleActivity extends AppCompatActivity {
 
     private LutemonBattleAdapter adapter;
 
+    private TextView txtBattle;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -28,6 +31,7 @@ public class LutemonBattleActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new LutemonBattleAdapter(getApplicationContext(), storage.getLutemons());
         recyclerView.setAdapter(adapter);
+        txtBattle = findViewById(R.id.txtBattleInfo);
         for (Lutemon lutemon : storage.getLutemons()) {
             lutemon.setChecked(false);
         }
@@ -43,6 +47,7 @@ public class LutemonBattleActivity extends AppCompatActivity {
         }
         for (Lutemon lutemon : checkedLutemons) {
             lutemon.fight(checkedLutemons.get(0), checkedLutemons.get(1));
+            txtBattle.setText(lutemon.toString());
         }
         storage.saveLutemons(getApplicationContext());
         adapter.notifyDataSetChanged();
