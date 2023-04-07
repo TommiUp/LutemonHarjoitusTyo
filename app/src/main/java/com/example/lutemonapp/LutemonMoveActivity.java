@@ -9,6 +9,7 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
+import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -38,14 +39,32 @@ public class LutemonMoveActivity extends AppCompatActivity {
     public void moveLutemons(View view) {
         switch (rgMove.getCheckedRadioButtonId()) {
             case R.id.rbHome:
+                System.out.println("Kotiin nappia painettu");
+                sendToHome();
                 break;
             case R.id.rbTraining:
                 System.out.println("Training nappia painettu");
                 trainLutemons();
                 break;
             case R.id.rbCombat:
+                System.out.println("Battle nappia painettu");
+                battleLutemons();
                 break;
         }
+    }
+
+    public void sendToHome() {
+        List<Lutemon> checkedLutemons = new ArrayList<>();
+        for (Lutemon lutemon : storage.getLutemons()) {
+            if (lutemon.isChecked()) {
+                checkedLutemons.add(lutemon);
+            }
+        }
+        for (Lutemon lutemon : checkedLutemons) {
+            lutemon.makeInvisible();
+            lutemon.setMaxHealth();
+        }
+        storage.saveLutemons(getApplicationContext());
     }
 
     public void trainLutemons() {
@@ -57,6 +76,19 @@ public class LutemonMoveActivity extends AppCompatActivity {
         }
         for (Lutemon lutemon : checkedLutemons) {
             lutemon.gainExperience();
+        }
+        storage.saveLutemons(getApplicationContext());
+    }
+
+    public void battleLutemons() {
+        List<Lutemon> checkedLutemons = new ArrayList<>();
+        for (Lutemon lutemon : storage.getLutemons()) {
+            if (lutemon.isChecked()) {
+                checkedLutemons.add(lutemon);
+            }
+        }
+        for (Lutemon lutemon : checkedLutemons) {
+            lutemon.makeVisible();
         }
         storage.saveLutemons(getApplicationContext());
     }

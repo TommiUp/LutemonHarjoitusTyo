@@ -13,5 +13,4 @@ public class LutemonMoveViewHolder extends RecyclerView.ViewHolder {
         super(itemView);
         checkboxName = itemView.findViewById(R.id.checkName);
     }
-
 }

@@ -1,5 +1,7 @@
 package com.example.lutemonapp;
 
+import android.opengl.Visibility;
+
 import java.io.Serializable;
 
 public class Lutemon implements Serializable {
@@ -12,6 +14,8 @@ public class Lutemon implements Serializable {
     private int maxHealth;
     private int id;
 
+    private int visibility;
+
     private boolean isChecked = false;
 
     private static int idCounter = 0;
@@ -22,6 +26,7 @@ public class Lutemon implements Serializable {
         this.type = type;
         this.id = idCounter++;
         this.experience = 0;
+        this.visibility = 0;
         switch (type) {
             case "White":
                 this.attack = 5;
@@ -78,6 +83,20 @@ public class Lutemon implements Serializable {
         System.out.println("Kokemusta annettiin");
         experience++;
         attack += experience;
+    }
+
+    public void makeVisible() {
+        System.out.println("Lutemon tuli näkyväksi");
+        visibility = 1;
+    }
+
+    public void makeInvisible() {
+        System.out.println("Lutemon katosi");
+        visibility = 0;
+    }
+
+    public int getVisibility() {
+        return visibility;
     }
 
     public boolean isChecked() {

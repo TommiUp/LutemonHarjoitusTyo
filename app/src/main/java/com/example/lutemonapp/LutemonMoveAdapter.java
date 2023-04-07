@@ -2,6 +2,7 @@ package com.example.lutemonapp;
 
 import android.content.Context;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -30,6 +31,7 @@ public class LutemonMoveAdapter extends RecyclerView.Adapter<LutemonMoveViewHold
     @Override
     public void onBindViewHolder(@NonNull LutemonMoveViewHolder holder, int position){
         Lutemon lutemon = lutemons.get(position);
+        holder.checkboxName.setVisibility(View.VISIBLE);
         holder.checkboxName.setText(lutemons.get(position).getName() + " (" + lutemons.get(position).getType() + ")");
         holder.checkboxName.setChecked(lutemon.isChecked());
         holder.checkboxName.setOnCheckedChangeListener((buttonView, isChecked) -> {
