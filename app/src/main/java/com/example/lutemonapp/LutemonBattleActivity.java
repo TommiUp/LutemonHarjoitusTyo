@@ -5,6 +5,11 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
+import android.view.View;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class LutemonBattleActivity extends AppCompatActivity {
 
@@ -20,5 +25,19 @@ public class LutemonBattleActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.rvLutemonList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(new LutemonBattleAdapter(getApplicationContext(), storage.getLutemons()));
+    }
+
+
+    public void sendToBattle(View view) {
+        List<Lutemon> checkedLutemons = new ArrayList<>();
+        for (Lutemon lutemon : storage.getLutemons()) {
+            if (lutemon.isChecked() && (checkedLutemons.size() < 2)) {
+                checkedLutemons.add(lutemon);
+            }
+        }
+        for (Lutemon lutemon : checkedLutemons) {
+            lutemon.fight(checkedLutemons.get(0), checkedLutemons.get(1));
+        }
+        storage.saveLutemons(getApplicationContext());
     }
 }
