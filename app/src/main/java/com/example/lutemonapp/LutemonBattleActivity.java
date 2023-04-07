@@ -28,6 +28,9 @@ public class LutemonBattleActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new LutemonBattleAdapter(getApplicationContext(), storage.getLutemons());
         recyclerView.setAdapter(adapter);
+        for (Lutemon lutemon : storage.getLutemons()) {
+            lutemon.setChecked(false);
+        }
     }
 
 

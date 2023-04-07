@@ -3,6 +3,8 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import java.util.ArrayList;
@@ -28,6 +30,7 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder> 
     public void onBindViewHolder(@NonNull LutemonViewHolder holder, int position){
         Lutemon lutemon = lutemons.get(position);
         if (lutemon.getBattleStatus() == 0){
+
             holder.lutemonName.setVisibility(View.VISIBLE);
             holder.lutemonAttack.setVisibility(View.VISIBLE);
             holder.lutemonDefence.setVisibility(View.VISIBLE);

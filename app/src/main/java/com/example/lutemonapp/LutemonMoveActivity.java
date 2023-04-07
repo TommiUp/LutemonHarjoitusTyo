@@ -34,6 +34,9 @@ public class LutemonMoveActivity extends AppCompatActivity {
         rbHome = findViewById(R.id.rbHome);
         rbTraining = findViewById(R.id.rbTraining);
         rbCombat = findViewById(R.id.rbCombat);
+        for (Lutemon lutemon : storage.getLutemons()) {
+            lutemon.setChecked(false);
+        }
     }
 
     public void moveLutemons(View view) {
