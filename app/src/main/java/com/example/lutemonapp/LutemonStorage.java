@@ -22,6 +22,10 @@ public class LutemonStorage {
         return instance;
     }
 
+    public void removeLutemon(int id) {
+        lutemons.remove(id);
+    }
+
     public ArrayList<Lutemon> getLutemons() {
         return lutemons;
     }

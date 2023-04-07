@@ -20,10 +20,10 @@ public class Lutemon implements Serializable {
     private int id;
 
     private int visibility;
-
     private boolean isChecked = false;
 
     private static int idCounter = 0;
+    private LutemonStorage storage;
 
     // Constructor for creating a Lutemon object with the given attributes
     public Lutemon(String name, String type) {
@@ -32,6 +32,7 @@ public class Lutemon implements Serializable {
         this.id = idCounter++;
         this.experience = 0;
         this.visibility = 0;
+        storage = LutemonStorage.getInstance();
         switch (type) {
             case "White":
                 this.attack = 5;
@@ -179,8 +180,7 @@ public class Lutemon implements Serializable {
                 System.out.println(lutemon2.getName() + " died.");
                 // Add experience points to Lutemon 1, remove Lutemon 2 from the list of Lutemons on the Battlefield, and remove it from the Storage
                 lutemon1.gainExperience();
-                //lutemons.remove(lutemon2);
-                //storage.removeLutemon(lutemon2.getId());
+                storage.removeLutemon(lutemon2.getId());
                 break;
             }
 
@@ -195,14 +195,12 @@ public class Lutemon implements Serializable {
                 System.out.println(lutemon1.getName() + " died.");
                 // Add experience points to Lutemon 2, remove Lutemon 1 from the list of Lutemons on the Battlefield, and remove it from the Storage
                 lutemon2.gainExperience();
-                //lutemons.remove(lutemon1);
-                //lutemons.removeLutemon(lutemon1.getId());
+                storage.removeLutemon(lutemon1.getId());
                 break;
             }
 
         }
     }
-
     @Override
     public String toString() {
         return "Name: " + name + "\nColor: " + type + "\nAttack: " + attack + "\nDefense: " + defence + "\nExperience: " + experience + "\nHealth: " + health + "/" + maxHealth + "\n";
