@@ -48,7 +48,8 @@ public class LutemonAddActivity extends AppCompatActivity {
         }
         name = txtName.getText().toString();
         Lutemon newLutemon = new Lutemon(name, type);
-        LutemonStorage.getInstance().addLutemon(newLutemon);
+        LutemonStorage.getInstance().addLutemon(newLutemon, "home");
+        LutemonStorage.getInstance().addLutemon(newLutemon, "all");
         LutemonStorage.getInstance().saveLutemons(this);
         finish();
     }

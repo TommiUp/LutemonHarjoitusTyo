@@ -20,6 +20,6 @@ public class LutemonListActivity extends AppCompatActivity {
         storage = LutemonStorage.getInstance();
         recyclerView = findViewById(R.id.rvLutemonList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new LutemonListAdapter(getApplicationContext(), storage.getLutemons()));
+        recyclerView.setAdapter(new LutemonListAdapter(getApplicationContext(), storage.getLutemons("home")));
     }
 }

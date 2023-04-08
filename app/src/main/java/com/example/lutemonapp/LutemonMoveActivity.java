@@ -29,12 +29,12 @@ public class LutemonMoveActivity extends AppCompatActivity {
         storage = LutemonStorage.getInstance();
         recyclerView = findViewById(R.id.rvLutemonList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new LutemonMoveAdapter(getApplicationContext(), storage.getLutemons()));
+        recyclerView.setAdapter(new LutemonMoveAdapter(getApplicationContext(), storage.getLutemons("all")));
         rgMove = findViewById(R.id.rgMove);
         rbHome = findViewById(R.id.rbHome);
         rbTraining = findViewById(R.id.rbTraining);
         rbCombat = findViewById(R.id.rbCombat);
-        for (Lutemon lutemon : storage.getLutemons()) {
+        for (Lutemon lutemon : storage.getLutemons("all")) {
             lutemon.setChecked(false);
         }
     }
@@ -58,21 +58,24 @@ public class LutemonMoveActivity extends AppCompatActivity {
 
     public void sendToHome() {
         List<Lutemon> checkedLutemons = new ArrayList<>();
-        for (Lutemon lutemon : storage.getLutemons()) {
+        for (Lutemon lutemon : storage.getLutemons("all")) {
             if (lutemon.isChecked()) {
                 checkedLutemons.add(lutemon);
             }
         }
         for (Lutemon lutemon : checkedLutemons) {
-            lutemon.makeInvisible();
             lutemon.setMaxHealth();
+            if (!storage.getLutemons("home").contains(lutemon)) {
+                storage.removeLutemon(lutemon, "battle");
+                storage.addLutemon(lutemon, "home");
+            }
         }
         storage.saveLutemons(getApplicationContext());
     }
 
     public void trainLutemons() {
         List<Lutemon> checkedLutemons = new ArrayList<>();
-        for (Lutemon lutemon : storage.getLutemons()) {
+        for (Lutemon lutemon : storage.getLutemons("home")) {
             if (lutemon.isChecked()) {
                 checkedLutemons.add(lutemon);
             }
@@ -85,13 +88,16 @@ public class LutemonMoveActivity extends AppCompatActivity {
 
     public void battleLutemons() {
         List<Lutemon> checkedLutemons = new ArrayList<>();
-        for (Lutemon lutemon : storage.getLutemons()) {
+        for (Lutemon lutemon : storage.getLutemons("all")) {
             if (lutemon.isChecked()) {
                 checkedLutemons.add(lutemon);
             }
         }
         for (Lutemon lutemon : checkedLutemons) {
-            lutemon.makeVisible();
+            if (!storage.getLutemons("battle").contains(lutemon)) {
+                storage.removeLutemon(lutemon, "home");
+                storage.addLutemon(lutemon, "battle");
+            }
         }
         storage.saveLutemons(getApplicationContext());
     }

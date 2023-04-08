@@ -10,10 +10,17 @@ import java.util.ArrayList;
 public class LutemonStorage {
 
     private static LutemonStorage instance = null;
-    private ArrayList<Lutemon> lutemons;
+    private ArrayList<Lutemon> homeLutemons;
+    private ArrayList<Lutemon> battleLutemons;
+    private ArrayList<Lutemon> trainingLutemons;
+    private ArrayList<Lutemon> allLutemons;
+
 
     private LutemonStorage() {
-        lutemons = new ArrayList<>();
+        allLutemons = new ArrayList<>();
+        homeLutemons = new ArrayList<>();
+        battleLutemons = new ArrayList<>();
+        trainingLutemons = new ArrayList<>();
         instance = this;
     }
 
@@ -24,22 +31,62 @@ public class LutemonStorage {
         return instance;
     }
 
-    public void removeLutemon(int id) {
-        lutemons.remove(id);
+    public void removeLutemon(Lutemon lutemon, String listName) {
+        switch (listName) {
+            case "home":
+                homeLutemons.remove(lutemon);
+                break;
+            case "battle":
+                battleLutemons.remove(lutemon);
+                break;
+            case "training":
+                trainingLutemons.remove(lutemon);
+                break;
+            case "all":
+                allLutemons.remove(lutemon);
+            default:
+                break;
+        }
     }
 
-    public ArrayList<Lutemon> getLutemons() {
-        return lutemons;
+    public ArrayList<Lutemon> getLutemons(String listName) {
+        switch (listName) {
+            case "home":
+                return homeLutemons;
+            case "battle":
+                return battleLutemons;
+            case "training":
+                return trainingLutemons;
+            case "all":
+                return allLutemons;
+            default:
+                return null;
+        }
     }
 
-    public void addLutemon(Lutemon lutemon) {
-        lutemons.add(lutemon);
+    public void addLutemon(Lutemon lutemon, String listName) {
+        switch (listName) {
+            case "home":
+                homeLutemons.add(lutemon);
+                break;
+            case "battle":
+                battleLutemons.add(lutemon);
+                break;
+            case "training":
+                trainingLutemons.add(lutemon);
+                break;
+            case "all":
+                allLutemons.add(lutemon);
+                break;
+            default:
+                break;
+        }
     }
 
     public void saveLutemons(Context context){
         try {
             ObjectOutputStream lutemonWriter = new ObjectOutputStream(context.openFileOutput("lutemons.data", Context.MODE_PRIVATE));
-            lutemonWriter.writeObject(lutemons);
+            lutemonWriter.writeObject(homeLutemons);
             lutemonWriter.close();
             System.out.println("Lutemonien tallentaminen onnistui");
         } catch (IOException e){
@@ -50,7 +97,7 @@ public class LutemonStorage {
     public void loadLutemons(Context context){
         try {
             ObjectInputStream lutemonReader = new ObjectInputStream(context.openFileInput("lutemons.data"));
-            lutemons = (ArrayList<Lutemon>) lutemonReader.readObject();
+            homeLutemons = (ArrayList<Lutemon>) lutemonReader.readObject();
             lutemonReader.close();
             System.out.println("Lutemonien lataaminen onnistui");
         } catch (FileNotFoundException e){

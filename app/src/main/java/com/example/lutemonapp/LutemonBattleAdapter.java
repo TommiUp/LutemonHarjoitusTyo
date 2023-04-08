@@ -30,11 +30,6 @@ public class LutemonBattleAdapter extends RecyclerView.Adapter<LutemonBattleView
     @Override
     public void onBindViewHolder(@NonNull LutemonBattleViewHolder holder, int position){
         Lutemon lutemon = lutemons.get(position);
-        if (lutemon.getBattleStatus() == 1){
-            holder.checkboxBattle.setVisibility(View.VISIBLE);
-        } else {
-            holder.checkboxBattle.setVisibility(View.GONE);
-        }
         holder.checkboxBattle.setText(lutemons.get(position).getName() + " (" + lutemons.get(position).getType() + ")");
         holder.checkboxBattle.setChecked(lutemon.isChecked());
         holder.checkboxBattle.setOnCheckedChangeListener((buttonView, isChecked) -> {

@@ -29,10 +29,10 @@ public class LutemonBattleActivity extends AppCompatActivity {
         storage = LutemonStorage.getInstance();
         recyclerView = findViewById(R.id.rvLutemonList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new LutemonBattleAdapter(getApplicationContext(), storage.getLutemons());
+        adapter = new LutemonBattleAdapter(getApplicationContext(), storage.getLutemons("battle"));
         recyclerView.setAdapter(adapter);
         txtBattle = findViewById(R.id.txtBattleInfo);
-        for (Lutemon lutemon : storage.getLutemons()) {
+        for (Lutemon lutemon : storage.getLutemons("battle")) {
             lutemon.setChecked(false);
         }
     }
@@ -40,7 +40,7 @@ public class LutemonBattleActivity extends AppCompatActivity {
 
     public void sendToBattle(View view) {
         List<Lutemon> checkedLutemons = new ArrayList<>();
-        for (Lutemon lutemon : storage.getLutemons()) {
+        for (Lutemon lutemon : storage.getLutemons("battle")) {
             if (lutemon.isChecked() && (checkedLutemons.size() < 2)) {
                 checkedLutemons.add(lutemon);
             }
@@ -64,7 +64,8 @@ public class LutemonBattleActivity extends AppCompatActivity {
                     battleInfo.append(String.format("%s attacks %s\n", attacker.getName(), defender.getName()));
                     if (defender.getHealth() == 0) {
                         battleInfo.append(String.format("%s gets killed.\nThe battle is over.", defender.getName()));
-                        storage.removeLutemon(defender.getId());
+                        storage.removeLutemon(defender, "battle");
+                        storage.removeLutemon(defender, "all");
                         attacker.gainExperience();
                         battleOver = true;
                         break;
@@ -85,7 +86,8 @@ public class LutemonBattleActivity extends AppCompatActivity {
                     battleInfo.append(String.format("%s attacks %s\n", defender.getName(), attacker.getName()));
                     if (attacker.getHealth() == 0) {
                         battleInfo.append(String.format("%s gets killed.\nThe battle is over.", attacker.getName()));
-                        storage.removeLutemon(attacker.getId());
+                        storage.removeLutemon(attacker, "battle");
+                        storage.removeLutemon(attacker, "all");
                         defender.gainExperience();
                         battleOver = true;
                         break;
@@ -98,7 +100,7 @@ public class LutemonBattleActivity extends AppCompatActivity {
         }
         storage.saveLutemons(getApplicationContext());
         adapter.notifyDataSetChanged();
-        for (Lutemon lutemon : storage.getLutemons()) {
+        for (Lutemon lutemon : storage.getLutemons("battle")) {
             lutemon.setChecked(false);
         }
     }
