@@ -39,18 +39,29 @@
         app:layout_constraintStart_toStartOf="@+id/rvLutemonList"
         app:layout_constraintTop_toBottomOf="@+id/rvLutemonList" />
 
-    <TextView
-        android:id="@+id/txtBattleInfo"
-        android:layout_width="334dp"
-        android:layout_height="303dp"
-        android:layout_marginBottom="24dp"
-        android:background="#2196F3"
-        android:text="Taistelu ei ole vielä alkanut"
-        android:textAlignment="viewStart"
-        android:textSize="14sp"
+    <ScrollView
+        android:layout_width="316dp"
+        android:layout_height="301dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/btnStartBattle"
-        app:layout_constraintHorizontal_bias="0.51"
-        app:layout_constraintStart_toStartOf="@+id/btnStartBattle" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnStartBattle">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/txtBattleInfo"
+                android:layout_width="match_parent"
+                android:layout_height="700dp"
+                android:layout_marginBottom="24dp"
+                android:background="#2196F3"
+                android:text="Taistelu ei ole vielä alkanut"
+                android:textAlignment="viewStart"
+                android:textSize="14sp" />
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
