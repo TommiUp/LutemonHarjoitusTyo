@@ -1,9 +1,10 @@
 package com.example.lutemonapp;
 
 import java.io.Serializable;
-import java.util.Random;
 
 public class Lutemon implements Serializable {
+
+    private int img;
     private String name;
     private String type;
     private int attack;
@@ -32,26 +33,31 @@ public class Lutemon implements Serializable {
                 this.attack = 5;
                 this.defence = 4;
                 this.maxHealth = 20;
+                this.img = R.drawable.img_white;
                 break;
             case "Green":
                 this.attack = 6;
                 this.defence = 3;
                 this.maxHealth = 19;
+                this.img = R.drawable.img_green;
                 break;
             case "Pink":
                 this.attack = 7;
                 this.defence = 2;
                 this.maxHealth = 18;
+                this.img = R.drawable.img_pink;
                 break;
             case "Orange":
                 this.attack = 8;
                 this.defence = 1;
                 this.maxHealth = 17;
+                this.img = R.drawable.img_orange;
                 break;
             case "Black":
                 this.attack = 9;
                 this.defence = 0;
                 this.maxHealth = 16;
+                this.img = R.drawable.img_black;
                 break;
             default:
                 System.out.println("Invalid color");
@@ -82,7 +88,7 @@ public class Lutemon implements Serializable {
     public void gainExperience() {
         System.out.println("Kokemusta annettiin");
         experience++;
-        attack += experience;
+        attack += 1;
     }
 
     public void makeVisible() {
@@ -106,6 +112,10 @@ public class Lutemon implements Serializable {
     }
 
     // Getters and setters for the attributes of the Lutemon object
+
+    public int getImg(){
+        return img;
+    }
     public String getName() {
         return name;
     }
