@@ -6,8 +6,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.Serializable;
 import java.util.ArrayList;
-public class LutemonStorage {
+public class LutemonStorage implements Serializable {
 
     private static LutemonStorage instance = null;
     private ArrayList<Lutemon> homeLutemons;
@@ -83,10 +84,15 @@ public class LutemonStorage {
         }
     }
 
+    public Lutemon getLutemonByIdWithoutRemove(int id) {
+        return homeLutemons.get(id);
+    }
+
     public void saveLutemons(Context context){
         try {
             ObjectOutputStream lutemonWriter = new ObjectOutputStream(context.openFileOutput("lutemons.data", Context.MODE_PRIVATE));
             lutemonWriter.writeObject(homeLutemons);
+            lutemonWriter.writeObject(allLutemons);
             lutemonWriter.close();
             System.out.println("Lutemonien tallentaminen onnistui");
         } catch (IOException e){
@@ -98,6 +104,7 @@ public class LutemonStorage {
         try {
             ObjectInputStream lutemonReader = new ObjectInputStream(context.openFileInput("lutemons.data"));
             homeLutemons = (ArrayList<Lutemon>) lutemonReader.readObject();
+            allLutemons = (ArrayList<Lutemon>) lutemonReader.readObject();
             lutemonReader.close();
             System.out.println("Lutemonien lataaminen onnistui");
         } catch (FileNotFoundException e){

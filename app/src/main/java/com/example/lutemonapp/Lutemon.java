@@ -93,6 +93,10 @@ public class Lutemon implements Serializable {
         attack += 1;
     }
 
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public void increaseTrainingDays(){
         trainingDays++;
     }

@@ -9,10 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class LutemonListActivity extends AppCompatActivity {
-
     private LutemonStorage storage;
     private Context context;
-
     private RecyclerView  recyclerView;
     private LutemonListAdapter adapter;
 
@@ -31,6 +29,7 @@ public class LutemonListActivity extends AppCompatActivity {
 
     public void loadLutemonFile(View view){
         storage.loadLutemons(context);
+        adapter.setLutemons(storage.getLutemons("home"));
         adapter.notifyDataSetChanged();
     }
 

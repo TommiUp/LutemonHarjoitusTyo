@@ -57,4 +57,38 @@
 
     </LinearLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/imageDelete"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/image_delete"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/imageEdit"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/image_edit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageDelete" />
+
+        <EditText
+            android:id="@+id/editNameText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:inputType="textPersonName"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/imageEdit"
+            app:layout_constraintTop_toBottomOf="@+id/imageEdit" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.appcompat.widget.LinearLayoutCompat>

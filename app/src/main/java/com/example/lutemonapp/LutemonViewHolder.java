@@ -1,6 +1,7 @@
 package com.example.lutemonapp;
 
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -10,9 +11,11 @@ import androidx.recyclerview.widget.RecyclerView;
 public class LutemonViewHolder extends RecyclerView.ViewHolder {
 
 
-    ImageView imgLutemon;
+    ImageView imgLutemon, imgDelete, imgEdit;
 
     TextView lutemonName, lutemonAttack, lutemonDefence, lutemonHealth, lutemonExp;
+
+    EditText editName;
 
 
 
@@ -24,6 +27,9 @@ public class LutemonViewHolder extends RecyclerView.ViewHolder {
         lutemonDefence= itemView.findViewById(R.id.txtDefence);
         lutemonHealth = itemView.findViewById(R.id.txtHealth);
         lutemonExp = itemView.findViewById(R.id.txtExp);
+        imgDelete = itemView.findViewById(R.id.imageDelete);
+        imgEdit = itemView.findViewById(R.id.imageEdit);
+        editName = itemView.findViewById(R.id.editNameText);
     }
 
 }
