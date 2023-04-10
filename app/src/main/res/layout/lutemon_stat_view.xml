@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="5dp"
+    android:background="#F5673AB7"
+    android:orientation="horizontal">
+
+    <ImageView
+        android:id="@+id/imgLutemon"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_margin="5dp"
+        app:srcCompat="@drawable/ic_launcher_foreground" />
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="120dp"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/txtName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nimi (tyyppi)"
+            android:textSize="24sp" />
+
+        <TextView
+            android:id="@+id/txtExp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Kokemus"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/txtWin"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Voitot" />
+
+        <TextView
+            android:id="@+id/txtLost"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Häviöt" />
+
+        <TextView
+            android:id="@+id/txtDays"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Treenipäivät" />
+
+    </LinearLayout>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

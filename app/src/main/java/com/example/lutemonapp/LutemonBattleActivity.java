@@ -63,9 +63,9 @@ public class LutemonBattleActivity extends AppCompatActivity {
                             defender.getHealth(), defender.getMaxHealth()));
                     battleInfo.append(String.format("%s attacks %s\n", attacker.getName(), defender.getName()));
                     if (defender.getHealth() == 0) {
-                        battleInfo.append(String.format("%s gets killed.\nThe battle is over.", defender.getName()));
-                        storage.removeLutemon(defender, "battle");
-                        storage.removeLutemon(defender, "all");
+                        battleInfo.append(String.format("%s gets defeated.\nThe battle is over.", defender.getName()));
+                        attacker.increaseVictory();
+                        defender.increaseDefeat();
                         attacker.gainExperience();
                         battleOver = true;
                         break;
@@ -85,9 +85,9 @@ public class LutemonBattleActivity extends AppCompatActivity {
                             attacker.getHealth(), attacker.getMaxHealth()));
                     battleInfo.append(String.format("%s attacks %s\n", defender.getName(), attacker.getName()));
                     if (attacker.getHealth() == 0) {
-                        battleInfo.append(String.format("%s gets killed.\nThe battle is over.", attacker.getName()));
-                        storage.removeLutemon(attacker, "battle");
-                        storage.removeLutemon(attacker, "all");
+                        battleInfo.append(String.format("%s gets defeated.\nThe battle is over.", attacker.getName()));
+                        defender.increaseVictory();
+                        attacker.increaseDefeat();
                         defender.gainExperience();
                         battleOver = true;
                         break;

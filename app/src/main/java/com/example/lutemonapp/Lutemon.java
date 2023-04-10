@@ -3,7 +3,6 @@ package com.example.lutemonapp;
 import java.io.Serializable;
 
 public class Lutemon implements Serializable {
-
     private int img;
     private String name;
     private String type;
@@ -13,8 +12,9 @@ public class Lutemon implements Serializable {
     private int health;
     private int maxHealth;
     private int id;
-
-    private int visibility;
+    private int trainingDays;
+    private int wins;
+    private int lost;
     private boolean isChecked = false;
 
     private static int idCounter = 0;
@@ -26,7 +26,9 @@ public class Lutemon implements Serializable {
         this.type = type;
         this.id = idCounter++;
         this.experience = 0;
-        this.visibility = 0;
+        this.trainingDays = 0;
+        this.wins = 0;
+        this.lost = 0;
         storage = LutemonStorage.getInstance();
         switch (type) {
             case "White":
@@ -91,16 +93,25 @@ public class Lutemon implements Serializable {
         attack += 1;
     }
 
-    public void makeVisible() {
-        visibility = 1;
+    public void increaseTrainingDays(){
+        trainingDays++;
     }
 
-    public void makeInvisible() {
-        visibility = 0;
+    public void increaseVictory(){
+        wins++;
     }
 
-    public int getBattleStatus() {
-        return visibility;
+    public void increaseDefeat(){
+        lost++;
+    }
+    public int getWins(){
+        return wins;
+    }
+    public int getLost(){
+        return lost;
+    }
+    public int getTrainingDays(){
+        return trainingDays;
     }
 
     public boolean isChecked() {

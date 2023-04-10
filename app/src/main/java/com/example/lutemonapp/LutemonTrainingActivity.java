@@ -43,6 +43,7 @@ public class LutemonTrainingActivity extends AppCompatActivity {
         }
         for (Lutemon lutemon : checkedLutemons) {
             lutemon.gainExperience();
+            lutemon.increaseTrainingDays();
         }
         storage.saveLutemons(getApplicationContext());
         adapter.notifyDataSetChanged();

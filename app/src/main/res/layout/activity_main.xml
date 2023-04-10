@@ -21,7 +21,7 @@
         android:id="@+id/btnList"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="25dp"
         android:onClick="switchToListLutemon"
         android:text="Listaa Lutemonit"
         app:layout_constraintEnd_toEndOf="@+id/btnAdd"
@@ -32,7 +32,7 @@
         android:id="@+id/btnMove"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="25dp"
         android:onClick="switchToMoveLutemon"
         android:text="Siirrä Lutemoneja"
         app:layout_constraintEnd_toEndOf="@+id/btnList"
@@ -43,7 +43,7 @@
         android:id="@+id/btnBattle"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="25dp"
         android:onClick="switchToBattleLutemon"
         android:text="Taisteluareenalle!"
         app:layout_constraintEnd_toEndOf="@+id/btnTraining"
@@ -55,12 +55,23 @@
         android:id="@+id/btnTraining"
         android:layout_width="200dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="25dp"
         android:onClick="switchToTrainingLutemon"
         android:text="Treenialue"
         app:layout_constraintEnd_toEndOf="@+id/btnMove"
         app:layout_constraintHorizontal_bias="0.513"
         app:layout_constraintStart_toStartOf="@+id/btnMove"
         app:layout_constraintTop_toBottomOf="@+id/btnMove" />
+
+    <Button
+        android:id="@+id/btnStatistics"
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="25dp"
+        android:onClick="switchToStatLutemon"
+        android:text="Tilastot"
+        app:layout_constraintEnd_toEndOf="@+id/btnBattle"
+        app:layout_constraintStart_toStartOf="@+id/btnBattle"
+        app:layout_constraintTop_toBottomOf="@+id/btnBattle" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
