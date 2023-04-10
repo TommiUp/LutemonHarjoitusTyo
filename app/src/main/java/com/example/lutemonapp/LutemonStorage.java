@@ -86,7 +86,7 @@ public class LutemonStorage {
     public void saveLutemons(Context context){
         try {
             ObjectOutputStream lutemonWriter = new ObjectOutputStream(context.openFileOutput("lutemons.data", Context.MODE_PRIVATE));
-            lutemonWriter.writeObject(homeLutemons);
+            lutemonWriter.writeObject(allLutemons);
             lutemonWriter.close();
             System.out.println("Lutemonien tallentaminen onnistui");
         } catch (IOException e){
@@ -97,7 +97,7 @@ public class LutemonStorage {
     public void loadLutemons(Context context){
         try {
             ObjectInputStream lutemonReader = new ObjectInputStream(context.openFileInput("lutemons.data"));
-            homeLutemons = (ArrayList<Lutemon>) lutemonReader.readObject();
+            allLutemons = (ArrayList<Lutemon>) lutemonReader.readObject();
             lutemonReader.close();
             System.out.println("Lutemonien lataaminen onnistui");
         } catch (FileNotFoundException e){
