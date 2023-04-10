@@ -4,13 +4,17 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
 import android.os.Bundle;
+import android.view.View;
 
 public class LutemonListActivity extends AppCompatActivity {
 
     private LutemonStorage storage;
+    private Context context;
 
     private RecyclerView  recyclerView;
+    private LutemonListAdapter adapter;
 
 
     @Override
@@ -20,6 +24,18 @@ public class LutemonListActivity extends AppCompatActivity {
         storage = LutemonStorage.getInstance();
         recyclerView = findViewById(R.id.rvLutemonList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new LutemonListAdapter(getApplicationContext(), storage.getLutemons("home")));
+        adapter = new LutemonListAdapter(getApplicationContext(), storage.getLutemons("home"));
+        recyclerView.setAdapter(adapter);
+        context = this;
+    }
+
+    public void loadLutemonFile(View view){
+        storage.loadLutemons(context);
+        adapter.notifyDataSetChanged();
+    }
+
+    public void saveLutemonFile(View view){
+        storage.saveLutemons(context);
+        adapter.notifyDataSetChanged();
     }
 }

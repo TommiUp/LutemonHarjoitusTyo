@@ -8,10 +8,30 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvLutemonList"
-        android:layout_width="332dp"
-        android:layout_height="490dp"
+        android:layout_width="333dp"
+        android:layout_height="440dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/btnLoad"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:onClick="loadLutemonFile"
+        android:text="Lataa Lutemonit"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/rvLutemonList"
+        app:layout_constraintEnd_toEndOf="@+id/rvLutemonList" />
+
+    <Button
+        android:id="@+id/btnSave"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:onClick="saveLutemonFile"
+        android:text="Tallenna Lutemonit"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/rvLutemonList"
+        app:layout_constraintStart_toStartOf="@+id/rvLutemonList" />
 </androidx.constraintlayout.widget.ConstraintLayout>
