@@ -9,7 +9,6 @@ import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
-import java.sql.SQLOutput;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -47,11 +46,11 @@ public class LutemonMoveActivity extends AppCompatActivity {
                 break;
             case R.id.rbTraining:
                 System.out.println("Training nappia painettu");
-                trainLutemons();
+                sendToTraining();
                 break;
             case R.id.rbCombat:
                 System.out.println("Battle nappia painettu");
-                battleLutemons();
+                sendToBattle();
                 break;
         }
     }
@@ -67,26 +66,31 @@ public class LutemonMoveActivity extends AppCompatActivity {
             lutemon.setMaxHealth();
             if (!storage.getLutemons("home").contains(lutemon)) {
                 storage.removeLutemon(lutemon, "battle");
+                storage.removeLutemon(lutemon, "training");
                 storage.addLutemon(lutemon, "home");
+                }
             }
-        }
         storage.saveLutemons(getApplicationContext());
     }
 
-    public void trainLutemons() {
+    public void sendToTraining() {
         List<Lutemon> checkedLutemons = new ArrayList<>();
-        for (Lutemon lutemon : storage.getLutemons("home")) {
+        for (Lutemon lutemon : storage.getLutemons("all")) {
             if (lutemon.isChecked()) {
                 checkedLutemons.add(lutemon);
             }
         }
         for (Lutemon lutemon : checkedLutemons) {
-            lutemon.gainExperience();
+            if (!storage.getLutemons("training").contains(lutemon)) {
+                storage.removeLutemon(lutemon, "home");
+                storage.removeLutemon(lutemon, "battle");
+                storage.addLutemon(lutemon, "training");
+            }
         }
         storage.saveLutemons(getApplicationContext());
     }
 
-    public void battleLutemons() {
+    public void sendToBattle() {
         List<Lutemon> checkedLutemons = new ArrayList<>();
         for (Lutemon lutemon : storage.getLutemons("all")) {
             if (lutemon.isChecked()) {
@@ -96,6 +100,7 @@ public class LutemonMoveActivity extends AppCompatActivity {
         for (Lutemon lutemon : checkedLutemons) {
             if (!storage.getLutemons("battle").contains(lutemon)) {
                 storage.removeLutemon(lutemon, "home");
+                storage.removeLutemon(lutemon, "training");
                 storage.addLutemon(lutemon, "battle");
             }
         }

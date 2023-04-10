@@ -38,7 +38,7 @@ public class LutemonBattleActivity extends AppCompatActivity {
     }
 
 
-    public void sendToBattle(View view) {
+    public void battleLutemons(View view) {
         List<Lutemon> checkedLutemons = new ArrayList<>();
         for (Lutemon lutemon : storage.getLutemons("battle")) {
             if (lutemon.isChecked() && (checkedLutemons.size() < 2)) {
