@@ -38,10 +38,9 @@ public class LutemonStatisticsActivity extends AppCompatActivity {
         Pie pie = AnyChart.pie();
 
         List<DataEntry> data = new ArrayList<>();
-        data.add(new ValueDataEntry("John", 12000));
-        data.add(new ValueDataEntry("Jake", 8000));
-        data.add(new ValueDataEntry("Peter", 5000));
-
+        for (Lutemon lutemon : storage.getLutemons("all")) {
+            data.add(new ValueDataEntry(lutemon.getName(), lutemon.getWins()));
+        }
         pie.data(data);
 
         anyChartView.setChart(pie);
