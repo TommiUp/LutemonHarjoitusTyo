@@ -41,6 +41,8 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder> 
             public void onClick(View view) {
                 int pos = holder.getAdapterPosition();
                 removeLutemon(lutemons.get(pos));
+                LutemonStorage.getInstance().saveLutemons(context);
+                LutemonStorage.getInstance().loadLutemons(context);
             }
         });
         holder.imgEdit.setOnClickListener(new View.OnClickListener() {
@@ -52,6 +54,8 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonViewHolder> 
                     lutemon.setName(holder.editName.getText().toString());
                     holder.editName.setVisibility(View.GONE);
                     notifyDataSetChanged();
+                    LutemonStorage.getInstance().saveLutemons(context);
+                    LutemonStorage.getInstance().loadLutemons(context);
                 } else {
                     holder.editName.setVisibility(View.VISIBLE);
                 }

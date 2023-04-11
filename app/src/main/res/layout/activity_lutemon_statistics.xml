@@ -4,28 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LutemonBattleActivity">
+    tools:context=".LutemonStatisticsActivity">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvLutemonList"
-        android:layout_width="318dp"
-        android:layout_height="300dp"
-        android:layout_marginStart="32dp"
+        android:layout_width="350dp"
+        android:layout_height="440dp"
         android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <com.anychart.AnyChartView
-        android:id="@+id/chart_lutemon_stat"
-        android:layout_width="175dp"
-        android:layout_height="175dp"
-        android:layout_marginStart="150dp"
-        android:layout_marginTop="350dp"
+    <Button
+        android:id="@+id/btnStatistic"
+        android:layout_width="173dp"
+        android:layout_height="67dp"
+        android:onClick="switchToLutemonDiagram"
+        android:text="Näytä Statistiikka"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.657"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.722" />
+        app:layout_constraintTop_toBottomOf="@+id/rvLutemonList"
+        app:layout_constraintVertical_bias="0.3" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

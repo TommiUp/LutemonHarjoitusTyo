@@ -1,19 +1,14 @@
 package com.example.lutemonapp;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.anychart.AnyChart;
-import com.anychart.AnyChartView;
-import com.anychart.chart.common.dataentry.DataEntry;
-import com.anychart.chart.common.dataentry.ValueDataEntry;
-import com.anychart.charts.Pie;
 
-import java.util.ArrayList;
-import java.util.List;
 
 public class LutemonStatisticsActivity extends AppCompatActivity {
 
@@ -33,16 +28,12 @@ public class LutemonStatisticsActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         adapter = new LutemonStatisticsAdapter(getApplicationContext(), storage.getLutemons("all"));
         recyclerView.setAdapter(adapter);
-        AnyChartView anyChartView = findViewById(R.id.chart_lutemon_stat);
-
-        Pie pie = AnyChart.pie();
-
-        List<DataEntry> data = new ArrayList<>();
-        for (Lutemon lutemon : storage.getLutemons("all")) {
-            data.add(new ValueDataEntry(lutemon.getName(), lutemon.getWins()));
-        }
-        pie.data(data);
-
-        anyChartView.setChart(pie);
     }
-}
+
+
+
+        public void switchToLutemonDiagram (View view){
+            Intent intent = new Intent(this, LutemonDiagramActivity.class);
+            startActivity(intent);
+        }
+    }

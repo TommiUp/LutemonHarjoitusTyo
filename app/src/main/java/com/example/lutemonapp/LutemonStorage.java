@@ -92,7 +92,6 @@ public class LutemonStorage implements Serializable {
         try {
             ObjectOutputStream lutemonWriter = new ObjectOutputStream(context.openFileOutput("lutemons.data", Context.MODE_PRIVATE));
             lutemonWriter.writeObject(homeLutemons);
-            lutemonWriter.writeObject(allLutemons);
             lutemonWriter.close();
             System.out.println("Lutemonien tallentaminen onnistui");
         } catch (IOException e){
@@ -104,8 +103,15 @@ public class LutemonStorage implements Serializable {
         try {
             ObjectInputStream lutemonReader = new ObjectInputStream(context.openFileInput("lutemons.data"));
             homeLutemons = (ArrayList<Lutemon>) lutemonReader.readObject();
-            allLutemons = (ArrayList<Lutemon>) lutemonReader.readObject();
             lutemonReader.close();
+            if (!allLutemons.isEmpty()){
+                allLutemons.clear();
+                battleLutemons.clear();
+                trainingLutemons.clear();
+            }
+            for (Lutemon lutemon : homeLutemons) {
+                allLutemons.add(lutemon);
+            }
             System.out.println("Lutemonien lataaminen onnistui");
         } catch (FileNotFoundException e){
             System.out.println("Lutemonien lataaminen ei onnistunut");
