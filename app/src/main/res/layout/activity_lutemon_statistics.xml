@@ -9,10 +9,23 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvLutemonList"
         android:layout_width="318dp"
-        android:layout_height="422dp"
+        android:layout_height="300dp"
         android:layout_marginStart="32dp"
         android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+    <com.anychart.AnyChartView
+        android:id="@+id/chart_lutemon_stat"
+        android:layout_width="175dp"
+        android:layout_height="175dp"
+        android:layout_marginStart="150dp"
+        android:layout_marginTop="350dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.657"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.722" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
