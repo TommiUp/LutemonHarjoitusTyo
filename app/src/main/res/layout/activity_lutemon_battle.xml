@@ -8,9 +8,8 @@
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvLutemonList"
-        android:layout_width="312dp"
-        android:layout_height="69dp"
-        android:layout_marginTop="16dp"
+        android:layout_width="318dp"
+        android:layout_height="83dp"
         app:layout_constraintEnd_toEndOf="@+id/txtBattle"
         app:layout_constraintHorizontal_bias="0.492"
         app:layout_constraintStart_toStartOf="@+id/txtBattle"
