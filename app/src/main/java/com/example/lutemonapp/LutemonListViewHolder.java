@@ -8,7 +8,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-public class LutemonViewHolder extends RecyclerView.ViewHolder {
+public class LutemonListViewHolder extends RecyclerView.ViewHolder {
 
 
     ImageView imgLutemon, imgDelete, imgEdit;
@@ -19,7 +19,7 @@ public class LutemonViewHolder extends RecyclerView.ViewHolder {
 
 
 
-    public LutemonViewHolder(@NonNull View itemView){
+    public LutemonListViewHolder(@NonNull View itemView){
         super(itemView);
         imgLutemon=itemView.findViewById(R.id.imgLutemon);
         lutemonName = itemView.findViewById(R.id.txtName);
