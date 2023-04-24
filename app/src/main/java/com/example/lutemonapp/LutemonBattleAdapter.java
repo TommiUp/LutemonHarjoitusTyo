@@ -2,7 +2,6 @@ package com.example.lutemonapp;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -37,6 +36,7 @@ public class LutemonBattleAdapter extends RecyclerView.Adapter<LutemonBattleView
         });
     }
 
+    // Method for telling the size of the list
     @Override
     public int getItemCount() {
         return lutemons.size();

@@ -1,12 +1,12 @@
 package com.example.lutemonapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 public class LutemonAddActivity extends AppCompatActivity {
 
@@ -28,6 +28,7 @@ public class LutemonAddActivity extends AppCompatActivity {
         txtName = findViewById(R.id.txtLutemonName);
     }
 
+    // Method for creating a lutemon
     public void createLutemon(View view) {
         switch (rgLutemons.getCheckedRadioButtonId()) {
             case R.id.rbWhite:

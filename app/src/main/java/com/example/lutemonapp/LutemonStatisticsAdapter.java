@@ -36,6 +36,7 @@ public class LutemonStatisticsAdapter extends RecyclerView.Adapter<LutemonStatis
         holder.txtDays.setText("Treenipäivät: " + String.valueOf(lutemons.get(position).getTrainingDays()));
     }
 
+    // Method for telling the size of the list
     @Override
     public int getItemCount() {
         return lutemons.size();

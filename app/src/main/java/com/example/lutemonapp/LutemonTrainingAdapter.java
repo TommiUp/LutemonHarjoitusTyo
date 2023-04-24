@@ -40,6 +40,7 @@ public class LutemonTrainingAdapter extends RecyclerView.Adapter<LutemonTraining
         });
     }
 
+    // Method for telling the size of the list
     @Override
     public int getItemCount() {
         return lutemons.size();

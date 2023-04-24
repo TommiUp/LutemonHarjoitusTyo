@@ -32,6 +32,7 @@ public class LutemonStorage implements Serializable {
         return instance;
     }
 
+    // Method for removing lutemons from different arraylists
     public void removeLutemon(Lutemon lutemon, String listName) {
         switch (listName) {
             case "home":
@@ -50,6 +51,7 @@ public class LutemonStorage implements Serializable {
         }
     }
 
+    // Method for finding lutemons in an arraylist
     public ArrayList<Lutemon> getLutemons(String listName) {
         switch (listName) {
             case "home":
@@ -65,6 +67,7 @@ public class LutemonStorage implements Serializable {
         }
     }
 
+    // Method for adding lutemons to an arraylist
     public void addLutemon(Lutemon lutemon, String listName) {
         switch (listName) {
             case "home":
@@ -84,10 +87,12 @@ public class LutemonStorage implements Serializable {
         }
     }
 
+    // Method for finding lutemons by their id
     public Lutemon getLutemonByIdWithoutRemove(int id) {
         return homeLutemons.get(id);
     }
 
+    // Method for saving lutemons
     public void saveLutemons(Context context){
         try {
             ObjectOutputStream lutemonWriter = new ObjectOutputStream(context.openFileOutput("lutemons.data", Context.MODE_PRIVATE));
@@ -99,6 +104,7 @@ public class LutemonStorage implements Serializable {
         }
     }
 
+    // Method for loading lutemons
     public void loadLutemons(Context context){
         try {
             ObjectInputStream lutemonReader = new ObjectInputStream(context.openFileInput("lutemons.data"));

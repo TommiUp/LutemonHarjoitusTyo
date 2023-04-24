@@ -63,6 +63,7 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonListViewHold
         });
     }
 
+    // Method for removing selected lutemon from an arraylist
     public void removeLutemon(Lutemon lutemon) {
         int position = lutemons.indexOf(lutemon);
         if (position != -1) {
@@ -71,10 +72,12 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonListViewHold
         }
     }
 
+    // Method for updating the arraylists that contain lutemons
     public void setLutemons(ArrayList<Lutemon> lutemons) {
         this.lutemons = lutemons;
     }
 
+    // Method for telling the size of the list
     @Override
     public int getItemCount() {
         return lutemons.size();

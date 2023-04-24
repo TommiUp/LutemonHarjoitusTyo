@@ -1,12 +1,11 @@
 package com.example.lutemonapp;
 
+import android.os.Bundle;
+import android.view.View;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
-import android.view.View;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -34,6 +33,7 @@ public class LutemonTrainingActivity extends AppCompatActivity {
         }
     }
 
+    // Method for training lutemons. Increases experience and health
     public void trainLutemons(View view) {
         List<Lutemon> checkedLutemons = new ArrayList<>();
         for (Lutemon lutemon : storage.getLutemons("training")) {

@@ -93,20 +93,24 @@ public class Lutemon implements Serializable {
         attack += 1;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
+    // Method for increasing training day stats
     public void increaseTrainingDays(){
         trainingDays++;
     }
 
+    // Method for increasing victory stats
     public void increaseVictory(){
         wins++;
     }
 
+    // Method for increasing defeat stats
     public void increaseDefeat(){
         lost++;
+    }
+
+    // Getters and setters for the attributes of the Lutemon object
+    public void setName(String name) {
+        this.name = name;
     }
     public int getWins(){
         return wins;
@@ -125,8 +129,6 @@ public class Lutemon implements Serializable {
     public void setChecked(boolean isChecked) {
         this.isChecked = isChecked;
     }
-
-    // Getters and setters for the attributes of the Lutemon object
 
     public int getImg(){
         return img;
@@ -161,10 +163,6 @@ public class Lutemon implements Serializable {
 
     public int getId() {
         return id;
-    }
-
-    public static int getNumberOfCreatedLutemons() {
-        return idCounter;
     }
 
     public void setMaxHealth() {

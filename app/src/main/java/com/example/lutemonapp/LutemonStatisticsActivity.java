@@ -30,10 +30,9 @@ public class LutemonStatisticsActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
     }
 
-
-
-        public void switchToLutemonDiagram (View view){
-            Intent intent = new Intent(this, LutemonDiagramActivity.class);
-            startActivity(intent);
-        }
+    // Method for switching to the visualized diagram activity
+    public void switchToLutemonDiagram (View view){
+        Intent intent = new Intent(this, LutemonDiagramActivity.class);
+        startActivity(intent);
     }
+}

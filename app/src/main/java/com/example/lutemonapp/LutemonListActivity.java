@@ -27,12 +27,14 @@ public class LutemonListActivity extends AppCompatActivity {
         context = this;
     }
 
+    // Method for loading the save file
     public void loadLutemonFile(View view){
         storage.loadLutemons(context);
         adapter.setLutemons(storage.getLutemons("home"));
         adapter.notifyDataSetChanged();
     }
 
+    // Method for saving the save file
     public void saveLutemonFile(View view){
         storage.saveLutemons(context);
         adapter.notifyDataSetChanged();

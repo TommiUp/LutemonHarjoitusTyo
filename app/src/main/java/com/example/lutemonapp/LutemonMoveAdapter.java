@@ -2,14 +2,12 @@ package com.example.lutemonapp;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class LutemonMoveAdapter extends RecyclerView.Adapter<LutemonMoveViewHolder> {
 
@@ -38,6 +36,7 @@ public class LutemonMoveAdapter extends RecyclerView.Adapter<LutemonMoveViewHold
         });
     }
 
+    // Method for telling the size of the list
     @Override
     public int getItemCount() {
         return lutemons.size();

@@ -1,13 +1,13 @@
 package com.example.lutemonapp;
 
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +38,7 @@ public class LutemonMoveActivity extends AppCompatActivity {
         }
     }
 
+    // Method for moving lutemons to different activities such ass battlefield, training area and home
     public void moveLutemons(View view) {
         switch (rgMove.getCheckedRadioButtonId()) {
             case R.id.rbHome:
@@ -55,6 +56,7 @@ public class LutemonMoveActivity extends AppCompatActivity {
         }
     }
 
+    // Method for sending lutemons to home (arraylist)
     public void sendToHome() {
         List<Lutemon> checkedLutemons = new ArrayList<>();
         for (Lutemon lutemon : storage.getLutemons("all")) {
@@ -73,6 +75,7 @@ public class LutemonMoveActivity extends AppCompatActivity {
         storage.saveLutemons(getApplicationContext());
     }
 
+    // Method for sending lutemons to training area (arraylist)
     public void sendToTraining() {
         List<Lutemon> checkedLutemons = new ArrayList<>();
         for (Lutemon lutemon : storage.getLutemons("all")) {
@@ -90,6 +93,7 @@ public class LutemonMoveActivity extends AppCompatActivity {
         storage.saveLutemons(getApplicationContext());
     }
 
+    // Method for sending lutemons to battlefield (arraylist)
     public void sendToBattle() {
         List<Lutemon> checkedLutemons = new ArrayList<>();
         for (Lutemon lutemon : storage.getLutemons("all")) {
