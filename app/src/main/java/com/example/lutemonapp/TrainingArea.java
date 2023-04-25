@@ -6,7 +6,7 @@ public class TrainingArea extends LutemonStorage {
     public TrainingArea() {
         super();
     }
-    // Method for getting a singleton instance of TrainingArea
+    // Static method for returning the single instance of TrainingArea, creating it if it does not exist
     public static TrainingArea getInstance() {
         if (instance == null) {
             instance = new TrainingArea();
