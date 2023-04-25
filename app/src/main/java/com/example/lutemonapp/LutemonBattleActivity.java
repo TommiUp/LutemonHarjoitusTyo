@@ -13,7 +13,7 @@ import java.util.List;
 
 public class LutemonBattleActivity extends AppCompatActivity {
 
-    private LutemonStorage storage;
+    private BattleArea battleArea;
 
     private RecyclerView recyclerView;
 
@@ -25,13 +25,13 @@ public class LutemonBattleActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lutemon_battle);
-        storage = LutemonStorage.getInstance();
+        battleArea = BattleArea.getInstance();
         recyclerView = findViewById(R.id.rvLutemonList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new LutemonBattleAdapter(getApplicationContext(), storage.getLutemons("battle"));
+        adapter = new LutemonBattleAdapter(getApplicationContext(), battleArea.getLutemons());
         recyclerView.setAdapter(adapter);
         txtBattle = findViewById(R.id.txtBattleInfo);
-        for (Lutemon lutemon : storage.getLutemons("battle")) {
+        for (Lutemon lutemon : battleArea.getLutemons()) {
             lutemon.setChecked(false);
         }
     }
@@ -39,7 +39,7 @@ public class LutemonBattleActivity extends AppCompatActivity {
     // Method for starting the battle and showing the battle info in a TextView
     public void battleLutemons(View view) {
         List<Lutemon> checkedLutemons = new ArrayList<>();
-        for (Lutemon lutemon : storage.getLutemons("battle")) {
+        for (Lutemon lutemon : battleArea.getLutemons()) {
             if (lutemon.isChecked() && (checkedLutemons.size() < 2)) {
                 checkedLutemons.add(lutemon);
             }
@@ -103,9 +103,9 @@ public class LutemonBattleActivity extends AppCompatActivity {
             }
             txtBattle.setText(battleInfo.toString());
         }
-        storage.saveLutemons(getApplicationContext());
+        battleArea.saveLutemons(getApplicationContext());
         adapter.notifyDataSetChanged();
-        for (Lutemon lutemon : storage.getLutemons("battle")) {
+        for (Lutemon lutemon : battleArea.getLutemons()) {
             lutemon.setChecked(false);
         }
     }

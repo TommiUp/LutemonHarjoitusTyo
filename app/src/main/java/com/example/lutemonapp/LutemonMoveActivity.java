@@ -14,26 +14,29 @@ import java.util.List;
 
 public class LutemonMoveActivity extends AppCompatActivity {
 
-    private LutemonStorage storage;
-
     private RecyclerView recyclerView;
     private RadioGroup rgMove;
     private RadioButton rbHome, rbTraining, rbCombat;
+    private ArrayList<Lutemon> listOfLutemons = new ArrayList<>();
+    // Works as a helper variable that is used to find lutemons from different places
+    // such as battle, home, training
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lutemon_move);
-        storage = LutemonStorage.getInstance();
         recyclerView = findViewById(R.id.rvLutemonList);
+        listOfLutemons.addAll(HomeArea.getInstance().getLutemons());
+        listOfLutemons.addAll(BattleArea.getInstance().getLutemons());
+        listOfLutemons.addAll(TrainingArea.getInstance().getLutemons());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.setAdapter(new LutemonMoveAdapter(getApplicationContext(), storage.getLutemons("all")));
+        recyclerView.setAdapter(new LutemonMoveAdapter(getApplicationContext(), listOfLutemons));
         rgMove = findViewById(R.id.rgMove);
         rbHome = findViewById(R.id.rbHome);
         rbTraining = findViewById(R.id.rbTraining);
         rbCombat = findViewById(R.id.rbCombat);
-        for (Lutemon lutemon : storage.getLutemons("all")) {
+        for (Lutemon lutemon: listOfLutemons) {
             lutemon.setChecked(false);
         }
     }
@@ -59,55 +62,55 @@ public class LutemonMoveActivity extends AppCompatActivity {
     // Method for sending lutemons to home (arraylist)
     public void sendToHome() {
         List<Lutemon> checkedLutemons = new ArrayList<>();
-        for (Lutemon lutemon : storage.getLutemons("all")) {
+        for (Lutemon lutemon : listOfLutemons) {
             if (lutemon.isChecked()) {
                 checkedLutemons.add(lutemon);
             }
         }
         for (Lutemon lutemon : checkedLutemons) {
             lutemon.setMaxHealth();
-            if (!storage.getLutemons("home").contains(lutemon)) {
-                storage.removeLutemon(lutemon, "battle");
-                storage.removeLutemon(lutemon, "training");
-                storage.addLutemon(lutemon, "home");
+            if (!HomeArea.getInstance().getLutemons().contains(lutemon)) {
+                BattleArea.getInstance().removeLutemon(lutemon);
+                TrainingArea.getInstance().removeLutemon(lutemon);
+                HomeArea.getInstance().addLutemon(lutemon);
                 }
             }
-        storage.saveLutemons(getApplicationContext());
+        HomeArea.getInstance().saveLutemons(getApplicationContext());
     }
 
     // Method for sending lutemons to training area (arraylist)
     public void sendToTraining() {
         List<Lutemon> checkedLutemons = new ArrayList<>();
-        for (Lutemon lutemon : storage.getLutemons("all")) {
+        for (Lutemon lutemon : listOfLutemons) {
             if (lutemon.isChecked()) {
                 checkedLutemons.add(lutemon);
             }
         }
         for (Lutemon lutemon : checkedLutemons) {
-            if (!storage.getLutemons("training").contains(lutemon)) {
-                storage.removeLutemon(lutemon, "home");
-                storage.removeLutemon(lutemon, "battle");
-                storage.addLutemon(lutemon, "training");
+            if (!TrainingArea.getInstance().getLutemons().contains(lutemon)) {
+                HomeArea.getInstance().removeLutemon(lutemon);
+                BattleArea.getInstance().removeLutemon(lutemon);
+                TrainingArea.getInstance().addLutemon(lutemon);
             }
         }
-        storage.saveLutemons(getApplicationContext());
+        TrainingArea.getInstance().saveLutemons(getApplicationContext());
     }
 
     // Method for sending lutemons to battlefield (arraylist)
     public void sendToBattle() {
         List<Lutemon> checkedLutemons = new ArrayList<>();
-        for (Lutemon lutemon : storage.getLutemons("all")) {
+        for (Lutemon lutemon : listOfLutemons) {
             if (lutemon.isChecked()) {
                 checkedLutemons.add(lutemon);
             }
         }
         for (Lutemon lutemon : checkedLutemons) {
-            if (!storage.getLutemons("battle").contains(lutemon)) {
-                storage.removeLutemon(lutemon, "home");
-                storage.removeLutemon(lutemon, "training");
-                storage.addLutemon(lutemon, "battle");
+            if (!BattleArea.getInstance().getLutemons().contains(lutemon)) {
+                HomeArea.getInstance().removeLutemon(lutemon);
+                TrainingArea.getInstance().removeLutemon(lutemon);
+                BattleArea.getInstance().addLutemon(lutemon);
             }
         }
-        storage.saveLutemons(getApplicationContext());
+        BattleArea.getInstance().saveLutemons(getApplicationContext());
     }
 }

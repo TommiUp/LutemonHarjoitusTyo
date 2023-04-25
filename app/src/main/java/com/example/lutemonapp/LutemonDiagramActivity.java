@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LutemonDiagramActivity extends AppCompatActivity {
-    private LutemonStorage storage;
+    private ArrayList<Lutemon> listOfLutemons = new ArrayList<>();
     private List<DataEntry> data;
     private Pie pie;
     private AnyChartView anyChartView;
@@ -22,11 +22,13 @@ public class LutemonDiagramActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lutemon_diagram);
-        storage = LutemonStorage.getInstance();
+        listOfLutemons.addAll(HomeArea.getInstance().getLutemons());
+        listOfLutemons.addAll(BattleArea.getInstance().getLutemons());
+        listOfLutemons.addAll(TrainingArea.getInstance().getLutemons());
         anyChartView = findViewById(R.id.chart_lutemon_stat);
         data = new ArrayList<>();
         pie = AnyChart.pie();
-        for (Lutemon lutemon : storage.getLutemons("all")){
+        for (Lutemon lutemon : listOfLutemons){
             data.add(new ValueDataEntry(lutemon.getName(), lutemon.getWins()));
         }
         pie.data(data);

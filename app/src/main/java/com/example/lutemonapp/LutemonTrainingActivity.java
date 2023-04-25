@@ -12,7 +12,7 @@ import java.util.List;
 
 public class LutemonTrainingActivity extends AppCompatActivity {
 
-    private LutemonStorage storage;
+    private TrainingArea trainingArea;
 
     private RecyclerView recyclerView;
 
@@ -23,12 +23,12 @@ public class LutemonTrainingActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lutemon_training);
-        storage = LutemonStorage.getInstance();
+        trainingArea = TrainingArea.getInstance();
         recyclerView = findViewById(R.id.rvLutemonList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new LutemonTrainingAdapter(getApplicationContext(), storage.getLutemons("training"));
+        adapter = new LutemonTrainingAdapter(getApplicationContext(), trainingArea.getLutemons());
         recyclerView.setAdapter(adapter);
-        for (Lutemon lutemon : storage.getLutemons("training")) {
+        for (Lutemon lutemon : trainingArea.getLutemons()) {
             lutemon.setChecked(false);
         }
     }
@@ -36,7 +36,7 @@ public class LutemonTrainingActivity extends AppCompatActivity {
     // Method for training lutemons. Increases experience and health
     public void trainLutemons(View view) {
         List<Lutemon> checkedLutemons = new ArrayList<>();
-        for (Lutemon lutemon : storage.getLutemons("training")) {
+        for (Lutemon lutemon : trainingArea.getLutemons()) {
             if (lutemon.isChecked()) {
                 checkedLutemons.add(lutemon);
             }
@@ -45,7 +45,7 @@ public class LutemonTrainingActivity extends AppCompatActivity {
             lutemon.gainExperience();
             lutemon.increaseTrainingDays();
         }
-        storage.saveLutemons(getApplicationContext());
+        trainingArea.saveLutemons(getApplicationContext());
         adapter.notifyDataSetChanged();
     }
 }

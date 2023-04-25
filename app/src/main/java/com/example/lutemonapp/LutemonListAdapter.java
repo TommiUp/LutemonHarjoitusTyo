@@ -41,8 +41,8 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonListViewHold
             public void onClick(View view) {
                 int pos = holder.getAdapterPosition();
                 removeLutemon(lutemons.get(pos));
-                LutemonStorage.getInstance().saveLutemons(context);
-                LutemonStorage.getInstance().loadLutemons(context);
+                HomeArea.getInstance().saveLutemons(context);
+                HomeArea.getInstance().loadLutemons(context);
             }
         });
         holder.imgEdit.setOnClickListener(new View.OnClickListener() {
@@ -50,12 +50,12 @@ public class LutemonListAdapter extends RecyclerView.Adapter<LutemonListViewHold
             public void onClick(View view) {
                 int pos = holder.getAdapterPosition();
                 if (holder.editName.getVisibility() == view.VISIBLE){
-                    Lutemon lutemon = LutemonStorage.getInstance().getLutemonByIdWithoutRemove(pos);
+                    Lutemon lutemon = HomeArea.getInstance().getLutemonByIdWithoutRemove(pos);
                     lutemon.setName(holder.editName.getText().toString());
                     holder.editName.setVisibility(View.GONE);
                     notifyDataSetChanged();
-                    LutemonStorage.getInstance().saveLutemons(context);
-                    LutemonStorage.getInstance().loadLutemons(context);
+                    HomeArea.getInstance().saveLutemons(context);
+                    HomeArea.getInstance().loadLutemons(context);
                 } else {
                     holder.editName.setVisibility(View.VISIBLE);
                 }

@@ -18,7 +18,6 @@ public class Lutemon implements Serializable {
     private boolean isChecked = false;
 
     private static int idCounter = 0;
-    private LutemonStorage storage;
 
     // Constructor for creating a Lutemon object with the given attributes
     public Lutemon(String name, String type) {
@@ -29,7 +28,6 @@ public class Lutemon implements Serializable {
         this.trainingDays = 0;
         this.wins = 0;
         this.lost = 0;
-        storage = LutemonStorage.getInstance();
         switch (type) {
             case "White":
                 this.attack = 5;

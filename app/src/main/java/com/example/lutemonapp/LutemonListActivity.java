@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class LutemonListActivity extends AppCompatActivity {
-    private LutemonStorage storage;
+    private HomeArea homeArea;
     private Context context;
     private RecyclerView  recyclerView;
     private LutemonListAdapter adapter;
@@ -19,24 +19,24 @@ public class LutemonListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lutemon_list);
-        storage = LutemonStorage.getInstance();
+        homeArea = HomeArea.getInstance();
         recyclerView = findViewById(R.id.rvLutemonList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new LutemonListAdapter(getApplicationContext(), storage.getLutemons("home"));
+        adapter = new LutemonListAdapter(getApplicationContext(), homeArea.getLutemons());
         recyclerView.setAdapter(adapter);
         context = this;
     }
 
     // Method for loading the save file
     public void loadLutemonFile(View view){
-        storage.loadLutemons(context);
-        adapter.setLutemons(storage.getLutemons("home"));
+        homeArea.loadLutemons(context);
+        adapter.setLutemons(homeArea.getLutemons());
         adapter.notifyDataSetChanged();
     }
 
     // Method for saving the save file
     public void saveLutemonFile(View view){
-        storage.saveLutemons(context);
+        homeArea.saveLutemons(context);
         adapter.notifyDataSetChanged();
     }
 }

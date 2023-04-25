@@ -8,11 +8,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.util.ArrayList;
 
 
 public class LutemonStatisticsActivity extends AppCompatActivity {
 
-    private LutemonStorage storage;
+    private ArrayList<Lutemon> listOfLutemons = new ArrayList<>();
 
     private RecyclerView recyclerView;
 
@@ -23,10 +24,12 @@ public class LutemonStatisticsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_lutemon_statistics);
-        storage = LutemonStorage.getInstance();
+        listOfLutemons.addAll(HomeArea.getInstance().getLutemons());
+        listOfLutemons.addAll(BattleArea.getInstance().getLutemons());
+        listOfLutemons.addAll(TrainingArea.getInstance().getLutemons());
         recyclerView = findViewById(R.id.rvLutemonList);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new LutemonStatisticsAdapter(getApplicationContext(), storage.getLutemons("all"));
+        adapter = new LutemonStatisticsAdapter(getApplicationContext(), listOfLutemons);
         recyclerView.setAdapter(adapter);
     }
 
