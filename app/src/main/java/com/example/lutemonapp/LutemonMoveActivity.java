@@ -21,7 +21,6 @@ public class LutemonMoveActivity extends AppCompatActivity {
     // Works as a helper variable that is used to find lutemons from different places
     // such as battle, home, training
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

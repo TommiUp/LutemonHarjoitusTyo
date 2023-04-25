@@ -7,7 +7,6 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 public class LutemonAddActivity extends AppCompatActivity {
 
     private RadioGroup rgLutemons;

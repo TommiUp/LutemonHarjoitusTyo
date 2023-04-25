@@ -12,7 +12,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class LutemonBattleActivity extends AppCompatActivity {
-
     private BattleArea battleArea;
 
     private RecyclerView recyclerView;

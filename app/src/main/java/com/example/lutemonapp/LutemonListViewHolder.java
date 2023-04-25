@@ -31,6 +31,5 @@ public class LutemonListViewHolder extends RecyclerView.ViewHolder {
         imgEdit = itemView.findViewById(R.id.imageEdit);
         editName = itemView.findViewById(R.id.editNameText);
     }
-
 }
 

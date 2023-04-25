@@ -22,4 +22,3 @@ public class LutemonStatisticsViewHolder extends RecyclerView.ViewHolder {
         txtDays = itemView.findViewById(R.id.txtDays);
     }
 }
-

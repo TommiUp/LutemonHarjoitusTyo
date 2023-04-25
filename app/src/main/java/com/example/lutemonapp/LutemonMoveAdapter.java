@@ -42,4 +42,3 @@ public class LutemonMoveAdapter extends RecyclerView.Adapter<LutemonMoveViewHold
         return lutemons.size();
     }
 }
-

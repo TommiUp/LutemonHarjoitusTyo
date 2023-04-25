@@ -18,7 +18,6 @@ public class LutemonTrainingActivity extends AppCompatActivity {
 
     private LutemonTrainingAdapter adapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

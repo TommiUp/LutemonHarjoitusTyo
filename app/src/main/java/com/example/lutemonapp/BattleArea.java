@@ -1,5 +1,4 @@
 package com.example.lutemonapp;
-
 public class BattleArea extends LutemonStorage {
 
     private static BattleArea instance = null;

@@ -19,7 +19,6 @@ public class LutemonTrainingAdapter extends RecyclerView.Adapter<LutemonTraining
         this.context = context;
         this.lutemons = lutemons;
     }
-
     @NonNull
     @Override
     public LutemonTrainingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

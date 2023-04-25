@@ -1,7 +1,6 @@
 package com.example.lutemonapp;
 
 public class TrainingArea extends LutemonStorage {
-
     private static TrainingArea instance = null;
 
     public TrainingArea() {

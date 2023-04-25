@@ -25,7 +25,6 @@ public class LutemonStatisticsAdapter extends RecyclerView.Adapter<LutemonStatis
     public LutemonStatisticsViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         return new LutemonStatisticsViewHolder(LayoutInflater.from(context).inflate(R.layout.lutemon_stat_view, parent,false)); // lutemon view varten tarvitaan xml file
     }
-
     @Override
     public void onBindViewHolder(@NonNull LutemonStatisticsViewHolder holder, int position){
         holder.imgLutemon.setImageResource(lutemons.get(position).getImg());

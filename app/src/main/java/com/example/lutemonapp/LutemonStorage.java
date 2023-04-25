@@ -13,7 +13,6 @@ abstract class LutemonStorage implements Serializable {
     private static LutemonStorage instance = null;
     private ArrayList<Lutemon> lutemons;
 
-
     public LutemonStorage() {
         lutemons = new ArrayList<>();
         instance = this;

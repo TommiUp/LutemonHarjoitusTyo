@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class LutemonMoveViewHolder extends RecyclerView.ViewHolder {
-
     CheckBox checkboxName;
 
     public LutemonMoveViewHolder(@NonNull View itemView){

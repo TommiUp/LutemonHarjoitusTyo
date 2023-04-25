@@ -12,7 +12,6 @@ import com.anychart.charts.Pie;
 
 import java.util.ArrayList;
 import java.util.List;
-
 public class LutemonDiagramActivity extends AppCompatActivity {
     private ArrayList<Lutemon> listOfLutemons = new ArrayList<>();
     private List<DataEntry> data;

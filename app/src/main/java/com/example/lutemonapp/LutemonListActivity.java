@@ -14,7 +14,6 @@ public class LutemonListActivity extends AppCompatActivity {
     private RecyclerView  recyclerView;
     private LutemonListAdapter adapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

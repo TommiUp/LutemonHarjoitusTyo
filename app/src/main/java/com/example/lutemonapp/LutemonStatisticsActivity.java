@@ -19,7 +19,6 @@ public class LutemonStatisticsActivity extends AppCompatActivity {
 
     private LutemonStatisticsAdapter adapter;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

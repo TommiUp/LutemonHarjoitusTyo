@@ -19,7 +19,6 @@ public class LutemonBattleAdapter extends RecyclerView.Adapter<LutemonBattleView
         this.context = context;
         this.lutemons = lutemons;
     }
-
     @NonNull
     @Override
     public LutemonBattleViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {

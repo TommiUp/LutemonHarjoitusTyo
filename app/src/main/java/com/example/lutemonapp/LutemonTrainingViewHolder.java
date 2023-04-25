@@ -8,7 +8,6 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class LutemonTrainingViewHolder extends RecyclerView.ViewHolder {
-
     CheckBox checkboxTrain;
     TextView txtAttack, txtDefence, txtHealth, txtExp;
 

@@ -1,7 +1,6 @@
 package com.example.lutemonapp;
 
 import java.io.Serializable;
-
 public class Lutemon implements Serializable {
     private int img;
     private String name;

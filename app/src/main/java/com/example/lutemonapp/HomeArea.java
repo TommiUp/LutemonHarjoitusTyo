@@ -1,5 +1,4 @@
 package com.example.lutemonapp;
-
 public class HomeArea extends LutemonStorage {
 
     private static HomeArea instance = null;
