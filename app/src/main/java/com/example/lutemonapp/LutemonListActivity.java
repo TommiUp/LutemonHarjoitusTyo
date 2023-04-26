@@ -1,3 +1,9 @@
+// Lutemon App, LutemonListActivity
+// Tommi Uponen, Elias Kukkonen, Elias Seppä
+// List activity that works as the home screen for lutemons in which you can edit and delete lutemons.
+// Android Studio
+// Last Updated 26.4.2023
+
 package com.example.lutemonapp;
 
 import android.content.Context;

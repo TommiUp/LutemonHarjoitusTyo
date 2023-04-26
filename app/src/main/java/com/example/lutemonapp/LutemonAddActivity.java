@@ -1,3 +1,9 @@
+// Lutemon App, LutemonAddActivity
+// Tommi Uponen, Elias Kukkonen, Elias Seppä
+// Add activity for creating a lutemon by selecting it's type and writing a name for it
+// Android Studio
+// Last Updated 26.4.2023
+
 package com.example.lutemonapp;
 
 import android.os.Bundle;

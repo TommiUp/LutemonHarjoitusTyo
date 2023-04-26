@@ -1,3 +1,9 @@
+// Lutemon App, LutemonStatisticsActivity
+// Tommi Uponen, Elias Kukkonen, Elias Seppä
+// Statistics activity that contains the training days, experience, wins and losses for the lutemons
+// Android Studio
+// Last Updated 26.4.2023
+
 package com.example.lutemonapp;
 
 import android.content.Intent;

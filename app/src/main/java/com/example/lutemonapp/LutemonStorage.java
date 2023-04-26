@@ -1,3 +1,9 @@
+// Lutemon App, LutemonStorage
+// Tommi Uponen, Elias Kukkonen, Elias Seppä
+// Abstract class for the three areas for lutemons, training, battle, home
+// Android Studio
+// Last Updated 26.4.2023
+
 package com.example.lutemonapp;
 
 import android.content.Context;

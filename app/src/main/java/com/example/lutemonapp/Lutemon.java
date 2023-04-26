@@ -1,3 +1,9 @@
+// Lutemon App, Lutemon
+// Tommi Uponen, Elias Kukkonen, Elias Seppä
+// Class for the information that a single lutemon has
+// Android Studio
+// Last Updated 26.4.2023
+
 package com.example.lutemonapp;
 
 import java.io.Serializable;

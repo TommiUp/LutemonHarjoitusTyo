@@ -1,3 +1,9 @@
+// Lutemon App, LutemonBattleAdapter
+// Tommi Uponen, Elias Kukkonen, Elias Seppä
+// Adapter for the battle screen recycler view
+// Android Studio
+// Last Updated 26.4.2023
+
 package com.example.lutemonapp;
 
 import android.content.Context;

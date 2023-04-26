@@ -1,3 +1,9 @@
+// Lutemon App, LutemonTrainingActivity
+// Tommi Uponen, Elias Kukkonen, Elias Seppä
+// Training activity in which lutemons can be trained
+// Android Studio
+// Last Updated 26.4.2023
+
 package com.example.lutemonapp;
 
 import android.os.Bundle;

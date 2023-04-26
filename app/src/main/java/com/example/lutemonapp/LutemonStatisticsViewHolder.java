@@ -1,3 +1,9 @@
+// Lutemon App, LutemonStatisticsViewHolder
+// Tommi Uponen, Elias Kukkonen, Elias Seppä
+// View holder for the statistics recycler view
+// Android Studio
+// Last Updated 26.4.2023
+
 package com.example.lutemonapp;
 
 import android.view.View;

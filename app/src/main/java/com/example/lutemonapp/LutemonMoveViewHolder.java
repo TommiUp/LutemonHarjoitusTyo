@@ -1,3 +1,9 @@
+// Lutemon App, LutemonMoveViewHolder
+// Tommi Uponen, Elias Kukkonen, Elias Seppä
+// View holder for the recycler view that contains lutemons that can be moved to different areas
+// Android Studio
+// Last Updated 26.4.2023
+
 package com.example.lutemonapp;
 
 import android.view.View;

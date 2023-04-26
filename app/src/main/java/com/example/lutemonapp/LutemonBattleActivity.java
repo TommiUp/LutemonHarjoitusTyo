@@ -1,3 +1,9 @@
+// Lutemon App, LutemonBattleActivity
+// Tommi Uponen, Elias Kukkonen, Elias Seppä
+// Battle activity in which you can select 2 lutemons and make them fight, battle info is shown in a text view
+// Android Studio
+// Last Updated 26.4.2023
+
 package com.example.lutemonapp;
 
 import android.os.Bundle;

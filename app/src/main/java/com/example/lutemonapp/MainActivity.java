@@ -1,3 +1,9 @@
+// Lutemon App, MainActivity
+// Tommi Uponen, Elias Kukkonen, Elias Seppä
+// Activity for the start menu
+// Android Studio
+// Last Updated 26.4.2023
+
 package com.example.lutemonapp;
 
 import android.content.Intent;

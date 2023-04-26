@@ -1,3 +1,9 @@
+// Lutemon App, LutemonMoveAdapter
+// Tommi Uponen, Elias Kukkonen, Elias Seppä
+// Adapter for the recycler view that contains lutemons that can be moved to different areas
+// Android Studio
+// Last Updated 26.4.2023
+
 package com.example.lutemonapp;
 
 import android.content.Context;

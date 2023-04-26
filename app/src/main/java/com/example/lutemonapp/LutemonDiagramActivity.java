@@ -1,3 +1,9 @@
+// Lutemon App, LutemonDiagramActivity
+// Tommi Uponen, Elias Kukkonen, Elias Seppä
+// Diagram activity for the visualized statistics, shows a pie diagram from victories
+// Android Studio
+// Last Updated 26.4.2023
+
 package com.example.lutemonapp;
 
 import android.os.Bundle;

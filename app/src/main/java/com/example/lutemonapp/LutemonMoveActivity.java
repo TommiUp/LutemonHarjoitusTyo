@@ -1,3 +1,9 @@
+// Lutemon App, LutemonMoveActivity
+// Tommi Uponen, Elias Kukkonen, Elias Seppä
+// Activity for moving lutemons to training, battle and home by selecting them and moving with a single button
+// Android Studio
+// Last Updated 26.4.2023
+
 package com.example.lutemonapp;
 
 import android.os.Bundle;
