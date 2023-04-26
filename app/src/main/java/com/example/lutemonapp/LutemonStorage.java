@@ -44,7 +44,7 @@ abstract class LutemonStorage implements Serializable {
         return lutemons.get(id);
     }
 
-    // Method for saving lutemons
+    // Method for saving lutemons to a file 
     public void saveLutemons(Context context){
         try {
             ObjectOutputStream lutemonWriter = new ObjectOutputStream(context.openFileOutput("lutemons.data", Context.MODE_PRIVATE));
@@ -56,7 +56,7 @@ abstract class LutemonStorage implements Serializable {
         }
     }
 
-    // Method for loading lutemons
+    // Method for loading lutemons from a file
     public void loadLutemons(Context context){
         try {
             ObjectInputStream lutemonReader = new ObjectInputStream(context.openFileInput("lutemons.data"));
